@@ -1,4 +1,11 @@
-C# Accounting Software for Alfath_Plastic Factory
+# C# Accounting Software for Alfath_Plastic Factory
+
+## Tools that used in Project
+### C# as a programming Langauge
+### Microsoft Access as a Database
+
+# Benefit of project
+#### This Program used by Alfath_Plastic Factory to facilitate there accounting affairs
 
 ![alt text](https://github.com/MohamedGamal10/Desktop-Application/blob/master/Elfath_Plastic/Images/1.png)
 ![alt text](https://github.com/MohamedGamal10/Desktop-Application/blob/master/Elfath_Plastic/Images/2.png)
