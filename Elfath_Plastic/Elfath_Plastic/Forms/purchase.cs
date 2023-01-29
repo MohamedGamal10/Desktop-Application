@@ -317,10 +317,10 @@ namespace Elfath_Plastic.Forms
         {
             try
             {
-                Int32 val1 = Convert.ToInt32(Weight.Text);
-                Int32 val2 = Convert.ToInt32(Price.Text);
-                Int32 val3 = Convert.ToInt32(Discount.Text);
-                Int32 val4 = (val1 * val2)-val3;
+                double val1 = Convert.ToDouble(Weight.Text);
+                double val2 = Convert.ToDouble(Price.Text);
+                double val3 = Convert.ToDouble(Discount.Text);
+                double val4 = (val1 * val2)-val3;
                 Total_invoice.Text = Convert.ToString(val4);
             }
             catch(Exception ex)
@@ -384,7 +384,145 @@ namespace Elfath_Plastic.Forms
 
         }
 
-        
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void to_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void from_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Price_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Material_Name_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Supplier_Name_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Purchase_Invoice_Date_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void search_purchase_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Total_invoice_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Notes_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Amount_Paid_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Weight_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Discount_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

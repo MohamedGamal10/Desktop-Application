@@ -60,7 +60,7 @@
             // num_bank
             // 
             this.num_bank.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.num_bank.Location = new System.Drawing.Point(909, 18);
+            this.num_bank.Location = new System.Drawing.Point(890, 18);
             this.num_bank.Name = "num_bank";
             this.num_bank.Size = new System.Drawing.Size(306, 36);
             this.num_bank.TabIndex = 20;
@@ -68,7 +68,7 @@
             // Address
             // 
             this.Address.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Address.Location = new System.Drawing.Point(909, 88);
+            this.Address.Location = new System.Drawing.Point(890, 88);
             this.Address.Name = "Address";
             this.Address.Size = new System.Drawing.Size(306, 36);
             this.Address.TabIndex = 18;
@@ -76,7 +76,7 @@
             // Mobile_Number
             // 
             this.Mobile_Number.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Mobile_Number.Location = new System.Drawing.Point(1456, 88);
+            this.Mobile_Number.Location = new System.Drawing.Point(1437, 88);
             this.Mobile_Number.Name = "Mobile_Number";
             this.Mobile_Number.Size = new System.Drawing.Size(306, 36);
             this.Mobile_Number.TabIndex = 17;
@@ -86,7 +86,7 @@
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(1270, 27);
+            this.label8.Location = new System.Drawing.Point(1251, 27);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(122, 24);
             this.label8.TabIndex = 7;
@@ -97,7 +97,7 @@
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(1340, 100);
+            this.label6.Location = new System.Drawing.Point(1321, 100);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(52, 24);
             this.label6.TabIndex = 5;
@@ -108,7 +108,7 @@
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(1820, 88);
+            this.label5.Location = new System.Drawing.Point(1801, 88);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(78, 24);
             this.label5.TabIndex = 4;
@@ -119,7 +119,7 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(1826, 30);
+            this.label1.Location = new System.Drawing.Point(1807, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 24);
             this.label1.TabIndex = 0;
@@ -127,12 +127,14 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.AutoScroll = true;
             this.tabPage3.Controls.Add(this.search_btn_display);
             this.tabPage3.Controls.Add(this.search_display_suppliers);
             this.tabPage3.Controls.Add(this.dataGridView1_display_suppliers);
             this.tabPage3.Location = new System.Drawing.Point(4, 38);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tabPage3.Size = new System.Drawing.Size(1916, 703);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "كشف حساب";
@@ -141,7 +143,7 @@
             // search_btn_display
             // 
             this.search_btn_display.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.search_btn_display.Location = new System.Drawing.Point(1511, 14);
+            this.search_btn_display.Location = new System.Drawing.Point(1492, 14);
             this.search_btn_display.Name = "search_btn_display";
             this.search_btn_display.Size = new System.Drawing.Size(103, 40);
             this.search_btn_display.TabIndex = 58;
@@ -152,7 +154,7 @@
             // search_display_suppliers
             // 
             this.search_display_suppliers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.search_display_suppliers.Location = new System.Drawing.Point(1640, 14);
+            this.search_display_suppliers.Location = new System.Drawing.Point(1621, 14);
             this.search_display_suppliers.Name = "search_display_suppliers";
             this.search_display_suppliers.Size = new System.Drawing.Size(268, 36);
             this.search_display_suppliers.TabIndex = 57;
@@ -161,8 +163,10 @@
             // 
             this.dataGridView1_display_suppliers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1_display_suppliers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1_display_suppliers.Location = new System.Drawing.Point(241, 69);
+            this.dataGridView1_display_suppliers.Location = new System.Drawing.Point(222, 69);
             this.dataGridView1_display_suppliers.Name = "dataGridView1_display_suppliers";
+            this.dataGridView1_display_suppliers.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dataGridView1_display_suppliers.RowHeadersWidth = 51;
             this.dataGridView1_display_suppliers.RowTemplate.Height = 24;
             this.dataGridView1_display_suppliers.Size = new System.Drawing.Size(1667, 533);
             this.dataGridView1_display_suppliers.TabIndex = 56;
@@ -183,6 +187,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.AutoScroll = true;
             this.tabPage1.Controls.Add(this.dataGridView1_add_suppliers);
             this.tabPage1.Controls.Add(this.btn_search);
             this.tabPage1.Controls.Add(this.search_suppliers);
@@ -200,6 +205,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 38);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tabPage1.Size = new System.Drawing.Size(1916, 703);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "اضافة وتعديل";
@@ -219,9 +225,11 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1_add_suppliers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1_add_suppliers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1_add_suppliers.Location = new System.Drawing.Point(319, 150);
+            this.dataGridView1_add_suppliers.Location = new System.Drawing.Point(300, 150);
             this.dataGridView1_add_suppliers.Name = "dataGridView1_add_suppliers";
             this.dataGridView1_add_suppliers.ReadOnly = true;
+            this.dataGridView1_add_suppliers.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dataGridView1_add_suppliers.RowHeadersWidth = 51;
             dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.dataGridView1_add_suppliers.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1_add_suppliers.RowTemplate.Height = 25;
@@ -232,7 +240,7 @@
             // btn_search
             // 
             this.btn_search.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_search.Location = new System.Drawing.Point(1488, 539);
+            this.btn_search.Location = new System.Drawing.Point(1469, 539);
             this.btn_search.Name = "btn_search";
             this.btn_search.Size = new System.Drawing.Size(103, 40);
             this.btn_search.TabIndex = 56;
@@ -243,7 +251,7 @@
             // search_suppliers
             // 
             this.search_suppliers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.search_suppliers.Location = new System.Drawing.Point(1627, 539);
+            this.search_suppliers.Location = new System.Drawing.Point(1608, 539);
             this.search_suppliers.Name = "search_suppliers";
             this.search_suppliers.Size = new System.Drawing.Size(268, 36);
             this.search_suppliers.TabIndex = 55;
@@ -251,7 +259,7 @@
             // update_save_clients
             // 
             this.update_save_clients.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.update_save_clients.Location = new System.Drawing.Point(1270, 539);
+            this.update_save_clients.Location = new System.Drawing.Point(1251, 539);
             this.update_save_clients.Name = "update_save_clients";
             this.update_save_clients.Size = new System.Drawing.Size(103, 40);
             this.update_save_clients.TabIndex = 54;
@@ -262,7 +270,7 @@
             // delete_save_clients
             // 
             this.delete_save_clients.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.delete_save_clients.Location = new System.Drawing.Point(1379, 539);
+            this.delete_save_clients.Location = new System.Drawing.Point(1360, 539);
             this.delete_save_clients.Name = "delete_save_clients";
             this.delete_save_clients.Size = new System.Drawing.Size(103, 40);
             this.delete_save_clients.TabIndex = 53;
@@ -273,7 +281,7 @@
             // add_save_clients
             // 
             this.add_save_clients.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.add_save_clients.Location = new System.Drawing.Point(1161, 539);
+            this.add_save_clients.Location = new System.Drawing.Point(1142, 539);
             this.add_save_clients.Name = "add_save_clients";
             this.add_save_clients.Size = new System.Drawing.Size(103, 40);
             this.add_save_clients.TabIndex = 52;
@@ -284,7 +292,7 @@
             // Supplier_Name
             // 
             this.Supplier_Name.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Supplier_Name.Location = new System.Drawing.Point(1456, 21);
+            this.Supplier_Name.Location = new System.Drawing.Point(1437, 21);
             this.Supplier_Name.Name = "Supplier_Name";
             this.Supplier_Name.Size = new System.Drawing.Size(306, 36);
             this.Supplier_Name.TabIndex = 13;

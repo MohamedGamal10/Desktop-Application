@@ -316,11 +316,11 @@ namespace Elfath_Plastic.Forms
         {
             try
             {
-                Int32 val1 = Convert.ToInt32(Quantity.Text);
-                Int32 val2 = Convert.ToInt32(Price.Text);
-                Int32 val3 = Convert.ToInt32(Discount.Text);
-                Int32 val4 = Convert.ToInt32(Tax.Text);
-                Int32 val5 = ((val1 * val2)+val4) - val3;
+                double val1 = Convert.ToDouble(Quantity.Text);
+                double val2 = Convert.ToDouble(Price.Text);
+                double val3 = Convert.ToDouble(Discount.Text);
+                double val4 = Convert.ToDouble(Tax.Text);
+                double val5 = ((val1 * val2)+val4) - val3;
                 Total_invoice.Text = Convert.ToString(val5);
             }
             catch (Exception ex)

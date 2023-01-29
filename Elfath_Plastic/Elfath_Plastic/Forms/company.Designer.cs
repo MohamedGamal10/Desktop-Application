@@ -76,6 +76,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.AutoScroll = true;
             this.tabPage1.Controls.Add(this.update_company);
             this.tabPage1.Controls.Add(this.dateTimePicker2);
             this.tabPage1.Controls.Add(this.dateTimePicker1);
@@ -118,6 +119,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 38);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tabPage1.Size = new System.Drawing.Size(1498, 756);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "اضافة وتعديل";
@@ -174,6 +176,8 @@
             this.dataGridView_add_company.Location = new System.Drawing.Point(254, 355);
             this.dataGridView_add_company.Name = "dataGridView_add_company";
             this.dataGridView_add_company.ReadOnly = true;
+            this.dataGridView_add_company.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dataGridView_add_company.RowHeadersWidth = 51;
             this.dataGridView_add_company.RowTemplate.Height = 24;
             this.dataGridView_add_company.Size = new System.Drawing.Size(1236, 300);
             this.dataGridView_add_company.TabIndex = 39;

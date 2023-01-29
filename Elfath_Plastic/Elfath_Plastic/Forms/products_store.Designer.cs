@@ -51,6 +51,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.AutoScroll = true;
             this.tabPage1.Controls.Add(this.Product_Name);
             this.tabPage1.Controls.Add(this.btn_search_products_store);
             this.tabPage1.Controls.Add(this.search_products_store);
@@ -66,6 +67,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 38);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tabPage1.Size = new System.Drawing.Size(1916, 657);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "اضافة وتعديل";
@@ -74,7 +76,7 @@
             // Product_Name
             // 
             this.Product_Name.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Product_Name.Location = new System.Drawing.Point(1456, 21);
+            this.Product_Name.Location = new System.Drawing.Point(1435, 21);
             this.Product_Name.Name = "Product_Name";
             this.Product_Name.Size = new System.Drawing.Size(306, 36);
             this.Product_Name.TabIndex = 59;
@@ -82,7 +84,7 @@
             // btn_search_products_store
             // 
             this.btn_search_products_store.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_search_products_store.Location = new System.Drawing.Point(1496, 572);
+            this.btn_search_products_store.Location = new System.Drawing.Point(1475, 572);
             this.btn_search_products_store.Name = "btn_search_products_store";
             this.btn_search_products_store.Size = new System.Drawing.Size(103, 40);
             this.btn_search_products_store.TabIndex = 57;
@@ -93,7 +95,7 @@
             // search_products_store
             // 
             this.search_products_store.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.search_products_store.Location = new System.Drawing.Point(1625, 572);
+            this.search_products_store.Location = new System.Drawing.Point(1604, 572);
             this.search_products_store.Name = "search_products_store";
             this.search_products_store.Size = new System.Drawing.Size(268, 36);
             this.search_products_store.TabIndex = 56;
@@ -112,9 +114,11 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1_add_products_store.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1_add_products_store.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1_add_products_store.Location = new System.Drawing.Point(394, 212);
+            this.dataGridView1_add_products_store.Location = new System.Drawing.Point(373, 212);
             this.dataGridView1_add_products_store.Name = "dataGridView1_add_products_store";
             this.dataGridView1_add_products_store.ReadOnly = true;
+            this.dataGridView1_add_products_store.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dataGridView1_add_products_store.RowHeadersWidth = 51;
             dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.dataGridView1_add_products_store.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1_add_products_store.RowTemplate.Height = 25;
@@ -125,7 +129,7 @@
             // update_save_products_store
             // 
             this.update_save_products_store.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.update_save_products_store.Location = new System.Drawing.Point(1278, 572);
+            this.update_save_products_store.Location = new System.Drawing.Point(1257, 572);
             this.update_save_products_store.Name = "update_save_products_store";
             this.update_save_products_store.Size = new System.Drawing.Size(103, 40);
             this.update_save_products_store.TabIndex = 54;
@@ -136,7 +140,7 @@
             // delete_save_products_store
             // 
             this.delete_save_products_store.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.delete_save_products_store.Location = new System.Drawing.Point(1387, 572);
+            this.delete_save_products_store.Location = new System.Drawing.Point(1366, 572);
             this.delete_save_products_store.Name = "delete_save_products_store";
             this.delete_save_products_store.Size = new System.Drawing.Size(103, 40);
             this.delete_save_products_store.TabIndex = 53;
@@ -147,7 +151,7 @@
             // add_save_products_store
             // 
             this.add_save_products_store.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.add_save_products_store.Location = new System.Drawing.Point(1169, 572);
+            this.add_save_products_store.Location = new System.Drawing.Point(1148, 572);
             this.add_save_products_store.Name = "add_save_products_store";
             this.add_save_products_store.Size = new System.Drawing.Size(103, 40);
             this.add_save_products_store.TabIndex = 52;
@@ -159,7 +163,7 @@
             // 
             this.Last_Check_Date.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Last_Check_Date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.Last_Check_Date.Location = new System.Drawing.Point(1456, 139);
+            this.Last_Check_Date.Location = new System.Drawing.Point(1435, 139);
             this.Last_Check_Date.Name = "Last_Check_Date";
             this.Last_Check_Date.Size = new System.Drawing.Size(306, 36);
             this.Last_Check_Date.TabIndex = 16;
@@ -167,7 +171,7 @@
             // Quantity
             // 
             this.Quantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Quantity.Location = new System.Drawing.Point(1456, 78);
+            this.Quantity.Location = new System.Drawing.Point(1435, 78);
             this.Quantity.Name = "Quantity";
             this.Quantity.Size = new System.Drawing.Size(306, 36);
             this.Quantity.TabIndex = 15;
@@ -177,7 +181,7 @@
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(1781, 139);
+            this.label4.Location = new System.Drawing.Point(1760, 139);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(116, 24);
             this.label4.TabIndex = 3;
@@ -188,7 +192,7 @@
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(1853, 82);
+            this.label3.Location = new System.Drawing.Point(1832, 82);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 24);
             this.label3.TabIndex = 2;
@@ -199,7 +203,7 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(1826, 30);
+            this.label1.Location = new System.Drawing.Point(1805, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(70, 24);
             this.label1.TabIndex = 0;

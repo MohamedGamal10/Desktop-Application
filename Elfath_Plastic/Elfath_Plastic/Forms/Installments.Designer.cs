@@ -64,6 +64,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.AutoScroll = true;
             this.tabPage1.Controls.Add(this.Employee_Name);
             this.tabPage1.Controls.Add(this.btn_search_Installments);
             this.tabPage1.Controls.Add(this.search_Installments);
@@ -79,6 +80,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 38);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tabPage1.Size = new System.Drawing.Size(1916, 714);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "اضافة وتعديل";
@@ -88,7 +90,7 @@
             // 
             this.Employee_Name.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Employee_Name.FormattingEnabled = true;
-            this.Employee_Name.Location = new System.Drawing.Point(1456, 21);
+            this.Employee_Name.Location = new System.Drawing.Point(1441, 21);
             this.Employee_Name.Name = "Employee_Name";
             this.Employee_Name.Size = new System.Drawing.Size(306, 37);
             this.Employee_Name.TabIndex = 58;
@@ -96,7 +98,7 @@
             // btn_search_Installments
             // 
             this.btn_search_Installments.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_search_Installments.Location = new System.Drawing.Point(1497, 651);
+            this.btn_search_Installments.Location = new System.Drawing.Point(1482, 651);
             this.btn_search_Installments.Name = "btn_search_Installments";
             this.btn_search_Installments.Size = new System.Drawing.Size(103, 40);
             this.btn_search_Installments.TabIndex = 57;
@@ -107,7 +109,7 @@
             // search_Installments
             // 
             this.search_Installments.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.search_Installments.Location = new System.Drawing.Point(1626, 651);
+            this.search_Installments.Location = new System.Drawing.Point(1611, 651);
             this.search_Installments.Name = "search_Installments";
             this.search_Installments.Size = new System.Drawing.Size(268, 36);
             this.search_Installments.TabIndex = 56;
@@ -126,9 +128,11 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1_add_Installments.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1_add_Installments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1_add_Installments.Location = new System.Drawing.Point(394, 291);
+            this.dataGridView1_add_Installments.Location = new System.Drawing.Point(379, 291);
             this.dataGridView1_add_Installments.Name = "dataGridView1_add_Installments";
             this.dataGridView1_add_Installments.ReadOnly = true;
+            this.dataGridView1_add_Installments.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dataGridView1_add_Installments.RowHeadersWidth = 51;
             dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.dataGridView1_add_Installments.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1_add_Installments.RowTemplate.Height = 25;
@@ -139,7 +143,7 @@
             // update_save_Installments
             // 
             this.update_save_Installments.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.update_save_Installments.Location = new System.Drawing.Point(1279, 651);
+            this.update_save_Installments.Location = new System.Drawing.Point(1264, 651);
             this.update_save_Installments.Name = "update_save_Installments";
             this.update_save_Installments.Size = new System.Drawing.Size(103, 40);
             this.update_save_Installments.TabIndex = 54;
@@ -150,7 +154,7 @@
             // delete_save_Installments
             // 
             this.delete_save_Installments.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.delete_save_Installments.Location = new System.Drawing.Point(1388, 651);
+            this.delete_save_Installments.Location = new System.Drawing.Point(1373, 651);
             this.delete_save_Installments.Name = "delete_save_Installments";
             this.delete_save_Installments.Size = new System.Drawing.Size(103, 40);
             this.delete_save_Installments.TabIndex = 53;
@@ -161,7 +165,7 @@
             // add_save_Installments
             // 
             this.add_save_Installments.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.add_save_Installments.Location = new System.Drawing.Point(1170, 651);
+            this.add_save_Installments.Location = new System.Drawing.Point(1155, 651);
             this.add_save_Installments.Name = "add_save_Installments";
             this.add_save_Installments.Size = new System.Drawing.Size(103, 40);
             this.add_save_Installments.TabIndex = 52;
@@ -173,7 +177,7 @@
             // 
             this.Advance_Payment_Date.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Advance_Payment_Date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.Advance_Payment_Date.Location = new System.Drawing.Point(1456, 135);
+            this.Advance_Payment_Date.Location = new System.Drawing.Point(1441, 135);
             this.Advance_Payment_Date.Name = "Advance_Payment_Date";
             this.Advance_Payment_Date.Size = new System.Drawing.Size(306, 36);
             this.Advance_Payment_Date.TabIndex = 18;
@@ -181,7 +185,7 @@
             // Advance_Payment_Value
             // 
             this.Advance_Payment_Value.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Advance_Payment_Value.Location = new System.Drawing.Point(1456, 83);
+            this.Advance_Payment_Value.Location = new System.Drawing.Point(1441, 83);
             this.Advance_Payment_Value.Name = "Advance_Payment_Value";
             this.Advance_Payment_Value.Size = new System.Drawing.Size(306, 36);
             this.Advance_Payment_Value.TabIndex = 14;
@@ -191,7 +195,7 @@
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(1816, 147);
+            this.label3.Location = new System.Drawing.Point(1801, 147);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(82, 24);
             this.label3.TabIndex = 2;
@@ -202,7 +206,7 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(1825, 86);
+            this.label2.Location = new System.Drawing.Point(1810, 86);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 24);
             this.label2.TabIndex = 1;
@@ -213,7 +217,7 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(1814, 30);
+            this.label1.Location = new System.Drawing.Point(1799, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(84, 24);
             this.label1.TabIndex = 0;

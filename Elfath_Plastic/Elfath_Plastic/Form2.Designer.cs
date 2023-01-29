@@ -128,7 +128,6 @@
             this.reports.Text = "التقارير";
             this.reports.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.reports.UseVisualStyleBackColor = true;
-            this.reports.Visible = false;
             this.reports.Click += new System.EventHandler(this.Reports_Click);
             // 
             // user_panal
@@ -183,6 +182,7 @@
             this.notice.Text = "التنبيهات";
             this.notice.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.notice.UseVisualStyleBackColor = true;
+            this.notice.Visible = false;
             this.notice.Click += new System.EventHandler(this.Notice_Click);
             // 
             // product_nventory
@@ -270,7 +270,7 @@
             this.sales.Name = "sales";
             this.sales.Size = new System.Drawing.Size(296, 50);
             this.sales.TabIndex = 8;
-            this.sales.Text = "بيع منتجات";
+            this.sales.Text = "فاتورة مبيعات";
             this.sales.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.sales.UseVisualStyleBackColor = true;
             this.sales.Click += new System.EventHandler(this.Sales_Click);
@@ -401,6 +401,7 @@
             this.company.Text = "بيانات المصنع";
             this.company.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.company.UseVisualStyleBackColor = true;
+            this.company.Visible = false;
             this.company.Click += new System.EventHandler(this.Company_Click);
             // 
             // panelLogo

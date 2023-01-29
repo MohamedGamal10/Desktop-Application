@@ -46,12 +46,14 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.AutoScroll = true;
             this.tabPage1.Controls.Add(this.Search);
             this.tabPage1.Controls.Add(this.txt_search);
             this.tabPage1.Controls.Add(this.sales);
             this.tabPage1.Location = new System.Drawing.Point(4, 38);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tabPage1.Size = new System.Drawing.Size(1605, 854);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "حركة البيع";
@@ -84,6 +86,7 @@
             this.sales.Location = new System.Drawing.Point(92, 15);
             this.sales.Name = "sales";
             this.sales.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.sales.RowHeadersWidth = 51;
             this.sales.RowTemplate.Height = 24;
             this.sales.Size = new System.Drawing.Size(1493, 494);
             this.sales.TabIndex = 0;
@@ -104,12 +107,14 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.AutoScroll = true;
             this.tabPage2.Controls.Add(this.button1);
             this.tabPage2.Controls.Add(this.textBox1);
             this.tabPage2.Controls.Add(this.dataGridView1_Purchase);
             this.tabPage2.Location = new System.Drawing.Point(4, 38);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tabPage2.Size = new System.Drawing.Size(1605, 854);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "حركة الشراء";
@@ -142,6 +147,7 @@
             this.dataGridView1_Purchase.Location = new System.Drawing.Point(92, 16);
             this.dataGridView1_Purchase.Name = "dataGridView1_Purchase";
             this.dataGridView1_Purchase.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dataGridView1_Purchase.RowHeadersWidth = 51;
             this.dataGridView1_Purchase.RowTemplate.Height = 24;
             this.dataGridView1_Purchase.Size = new System.Drawing.Size(1493, 494);
             this.dataGridView1_Purchase.TabIndex = 3;
