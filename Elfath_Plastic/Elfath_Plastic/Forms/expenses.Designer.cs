@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Expense_Value = new System.Windows.Forms.TextBox();
             this.Expense_Name = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -169,7 +169,7 @@
             // 
             this.cal_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cal_label.AutoSize = true;
-            this.cal_label.Location = new System.Drawing.Point(1010, 748);
+            this.cal_label.Location = new System.Drawing.Point(974, 748);
             this.cal_label.Name = "cal_label";
             this.cal_label.Size = new System.Drawing.Size(21, 29);
             this.cal_label.TabIndex = 67;
@@ -178,7 +178,7 @@
             // cal
             // 
             this.cal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cal.Location = new System.Drawing.Point(1056, 741);
+            this.cal.Location = new System.Drawing.Point(1112, 742);
             this.cal.Name = "cal";
             this.cal.Size = new System.Drawing.Size(103, 40);
             this.cal.TabIndex = 66;
@@ -189,7 +189,7 @@
             // search_from_to
             // 
             this.search_from_to.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.search_from_to.Location = new System.Drawing.Point(1195, 741);
+            this.search_from_to.Location = new System.Drawing.Point(1221, 742);
             this.search_from_to.Name = "search_from_to";
             this.search_from_to.Size = new System.Drawing.Size(103, 40);
             this.search_from_to.TabIndex = 65;
@@ -291,22 +291,22 @@
             this.dataGridView1_add_Expenses.AllowUserToDeleteRows = false;
             this.dataGridView1_add_Expenses.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1_add_Expenses.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1_add_Expenses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1_add_Expenses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1_add_Expenses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1_add_Expenses.Location = new System.Drawing.Point(907, 205);
             this.dataGridView1_add_Expenses.Name = "dataGridView1_add_Expenses";
             this.dataGridView1_add_Expenses.ReadOnly = true;
             this.dataGridView1_add_Expenses.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dataGridView1_add_Expenses.RowHeadersWidth = 51;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.dataGridView1_add_Expenses.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.dataGridView1_add_Expenses.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1_add_Expenses.RowTemplate.Height = 25;
             this.dataGridView1_add_Expenses.Size = new System.Drawing.Size(971, 354);
             this.dataGridView1_add_Expenses.TabIndex = 55;

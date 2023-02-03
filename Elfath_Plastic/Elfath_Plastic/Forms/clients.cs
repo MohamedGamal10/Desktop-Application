@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using DGVPrinterHelper;
+using System.Drawing.Printing;
 
 namespace Elfath_Plastic.Forms
 {
@@ -47,18 +49,7 @@ namespace Elfath_Plastic.Forms
             return dt;
         }
 
-        public DataTable load2()
-        {
-
-            con.Open();
-            String query = "SELECT Sales.Client_Name, Sum(Sales.Credit_Balance) AS SumOfCredit_Balance, Sum(Sales.Debit_Balance) AS SumOfDebit_Balance, Sum([Debit_Balance]-[Credit_Balance]) AS Expr1 FROM Sales GROUP BY Sales.Client_Name";
-            DataTable dt = new DataTable();
-            OleDbCommand cmd = new OleDbCommand(query, con);
-            OleDbDataAdapter da = new OleDbDataAdapter(cmd);
-            da.Fill(dt);
-            con.Close();
-            return dt;
-        }
+       
 
         public void Insert()
         {
@@ -77,7 +68,6 @@ namespace Elfath_Plastic.Forms
             cmd.ExecuteNonQuery();
             con.Close();
             dataGridView1_add_clients.DataSource = load();
-            dataGridView1_display_clients.DataSource = load2();
             }
             catch (Exception ex)
             {
@@ -116,7 +106,6 @@ namespace Elfath_Plastic.Forms
             dataGridView1_add_clients.Columns[8].HeaderText = "ملاحظات";
 
 
-            dataGridView1_display_clients.DataSource = load2();
             dataGridView1_display_clients.BorderStyle = BorderStyle.None;
             dataGridView1_display_clients.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
             dataGridView1_display_clients.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
@@ -128,11 +117,36 @@ namespace Elfath_Plastic.Forms
             dataGridView1_display_clients.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(20, 25, 72);
             dataGridView1_display_clients.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
 
-
+            dataGridView1_display_clients.Columns.Add("", "");
+            dataGridView1_display_clients.Columns.Add("", "");
+            dataGridView1_display_clients.Columns.Add("", "");
+            dataGridView1_display_clients.Columns.Add("", "");
+            dataGridView1_display_clients.Columns.Add("", "");
+            dataGridView1_display_clients.Rows.Add("", "");
             dataGridView1_display_clients.Columns[0].HeaderText = "اسم العميل";
             dataGridView1_display_clients.Columns[1].HeaderText = "رصيد مدين (علي العميل)";
             dataGridView1_display_clients.Columns[2].HeaderText = "رصيد دائن (علي المصنع)";
-            dataGridView1_display_clients.Columns[3].HeaderText = "حركة البيع للمصنع";
+            dataGridView1_display_clients.Columns[3].HeaderText = "الاقساط";
+            dataGridView1_display_clients.Columns[4].HeaderText = "مجموع حساب العميل";
+
+            try
+            {
+                con.Open();
+                String query = "SELECT Client_Name FROM Clients";
+                OleDbCommand cmd = new OleDbCommand(query, con);
+                OleDbDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    comboBox2_clients.Items.Add(reader[0].ToString());
+                    
+                }
+                con.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
 
         }
@@ -186,7 +200,7 @@ namespace Elfath_Plastic.Forms
                 cmd.ExecuteNonQuery();
                 con.Close();
                 dataGridView1_add_clients.DataSource = load();
-                dataGridView1_display_clients.DataSource = load2();
+
 
             }
             catch (Exception ex)
@@ -209,7 +223,7 @@ namespace Elfath_Plastic.Forms
                 cmd.ExecuteNonQuery();
                 con.Close();
                 dataGridView1_add_clients.DataSource = load();
-                dataGridView1_display_clients.DataSource = load2();
+                
 
             }
             catch (Exception ex)
@@ -270,6 +284,129 @@ namespace Elfath_Plastic.Forms
         }
 
         private void Search_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void clients_status_print_Click(object sender, EventArgs e)
+        {
+            DGVPrinter printer = new DGVPrinter();
+            printer.Title = "كشف حساب العملاء";
+            printer.PageNumbers = true;
+            printer.PageNumberInHeader = false;
+            printer.PorportionalColumns = true;
+            printer.HeaderCellAlignment = StringAlignment.Near;
+            printer.printDocument.DefaultPageSettings.Landscape = true;
+            Margins margins = new Margins(0, 0, 0, 0);
+            printer.printDocument.DefaultPageSettings.Margins = margins;
+            printer.PrintPreviewNoDisplay(dataGridView1_display_clients);
+        }
+
+        private void Search_Status_Clients_Click(object sender, EventArgs e)
+        {
+            float on_client_float = 0, on_factory_float = 0, inst_float = 0;
+            try
+            {
+                con.Open();
+                String query = "SELECT Sum(Sales.Credit_Balance) AS SumOfCredit_Balance FROM Sales WHERE (((Sales.Client_Name)="+ "'"+comboBox2_clients.Text + "'" + "))";
+                OleDbCommand cmd = new OleDbCommand(query, con);
+                OleDbDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+
+                    if (reader[0].ToString() == "")
+                    {
+                        on_client_float = 0;
+                    }
+                    else
+                    {
+                        on_client_float = float.Parse(reader[0].ToString());
+                    }
+
+
+                }
+                con.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            try
+            {
+                con.Open();
+                String query = "SELECT Sum(Sales.Debit_Balance) AS Debit_Balance FROM Sales WHERE (((Sales.Client_Name)=" + "'" + comboBox2_clients.Text + "'" + "))";
+                OleDbCommand cmd = new OleDbCommand(query, con);
+                OleDbDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+
+                    if (reader[0].ToString() == "")
+                    {
+                        on_factory_float = 0;
+                    }
+                    else
+                    {
+                        on_factory_float = float.Parse(reader[0].ToString());
+                    }
+
+                }
+                con.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            try
+            {
+                con.Open();
+                String query = "SELECT Sum(Clients_installment.installment_value) AS SumOfinstallment_value FROM Clients_installment WHERE (((Clients_installment.Client_Name)=" + "'" + comboBox2_clients.Text + "'" + "))";
+                OleDbCommand cmd = new OleDbCommand(query, con);
+                OleDbDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    if (reader[0].ToString() == "")
+                    {
+                        inst_float = 0;
+                    }
+                    else
+                    {
+                        inst_float = float.Parse(reader[0].ToString());
+                    }
+                    
+                    
+                    float diff = ((on_factory_float+ inst_float)- on_client_float);
+                    dataGridView1_display_clients.Rows[0].Cells[0].Value = comboBox2_clients.Text;
+                    dataGridView1_display_clients.Rows[0].Cells[1].Value = on_client_float.ToString();
+                    dataGridView1_display_clients.Rows[0].Cells[2].Value = on_factory_float.ToString();
+                    dataGridView1_display_clients.Rows[0].Cells[3].Value = inst_float.ToString();
+                    dataGridView1_display_clients.Rows[0].Cells[4].Value = diff.ToString();
+
+
+
+                }
+                con.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
+            
+
+        }
+
+        private void comboBox2_clients_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }

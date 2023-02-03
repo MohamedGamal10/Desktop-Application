@@ -22,5 +22,27 @@ namespace Elfath_Plastic.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\\Alfath_plastic.accd" +
+            "b")]
+        public string Alfath_plasticConnectionString {
+            get {
+                return ((string)(this["Alfath_plasticConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\\bin\\Debug\\Alfath_pl" +
+            "astic.accdb")]
+        public string Alfath_plasticConnectionString3 {
+            get {
+                return ((string)(this["Alfath_plasticConnectionString3"]));
+            }
+        }
     }
 }

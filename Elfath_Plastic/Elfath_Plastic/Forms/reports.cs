@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using DGVPrinterHelper;
+using System.Drawing.Printing;
 
 namespace Elfath_Plastic.Forms
 {
@@ -17,6 +19,8 @@ namespace Elfath_Plastic.Forms
         {
             InitializeComponent();
         }
+        static String sql = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Alfath_plastic.accdb; jet OLEDB:Database Password=''; Persist Security Info=True;";
+        OleDbConnection con = new OleDbConnection(sql);
 
         private void LoadTheme()
         {
@@ -32,85 +36,65 @@ namespace Elfath_Plastic.Forms
             }
 
         }
-        static String sql = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Alfath_plastic.accdb; jet OLEDB:Database Password=''; Persist Security Info=True;";
-        OleDbConnection con = new OleDbConnection(sql);
 
-        public DataTable load()
+        private void Cal_Click(object sender, EventArgs e)
         {
 
-            con.Open();
-            String query = "SELECT Sales.Client_Name, Sum(Sales.Credit_Balance) AS SumOfCredit_Balance, Sum(Sales.Debit_Balance) AS SumOfDebit_Balance, Sum([Debit_Balance]-[Credit_Balance]) AS Expr1 FROM Sales GROUP BY Sales.Client_Name";
-            DataTable dt = new DataTable();
-            OleDbCommand cmd = new OleDbCommand(query, con);
-            OleDbDataAdapter da = new OleDbDataAdapter(cmd);
-            da.Fill(dt);
-            con.Close();
-            return dt;
         }
 
-        public DataTable load1()
+        private void Search_from_to_Click(object sender, EventArgs e)
         {
 
-            con.Open();
-            String query = "SELECT Purchase.Supplier_Name, Sum(Purchase.Credit_Balance) AS SumOfCredit_Balance, Sum(Purchase.Debit_Balance) AS SumOfDebit_Balance, Sum([Debit_Balance]-[Credit_Balance]) AS Expr1 FROM Purchase GROUP BY Purchase.Supplier_Name";
-            DataTable dt = new DataTable();
-            OleDbCommand cmd = new OleDbCommand(query, con);
-            OleDbDataAdapter da = new OleDbDataAdapter(cmd);
-            da.Fill(dt);
-            con.Close();
-            return dt;
-        }
-        private void Reports_Load(object sender, EventArgs e)
-        {
-            LoadTheme();
-            sales.DataSource = load();
-            sales.BorderStyle = BorderStyle.None;
-            sales.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
-            sales.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            sales.DefaultCellStyle.SelectionBackColor = Color.DarkTurquoise;
-            sales.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
-            sales.BackgroundColor = Color.White;
-            sales.EnableHeadersVisualStyles = false;
-            sales.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            sales.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(20, 25, 72);
-            sales.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-
-            sales.Columns[0].HeaderText = "اسم العميل";
-            sales.Columns[1].HeaderText = "رصيد مدين (علي العميل)";
-            sales.Columns[2].HeaderText = "رصيد دائن (علي المصنع)";
-            sales.Columns[3].HeaderText = "حركة البيع للمصنع";
-
-            LoadTheme();
-            dataGridView1_Purchase.DataSource = load1();
-            dataGridView1_Purchase.BorderStyle = BorderStyle.None;
-            dataGridView1_Purchase.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
-            dataGridView1_Purchase.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridView1_Purchase.DefaultCellStyle.SelectionBackColor = Color.DarkTurquoise;
-            dataGridView1_Purchase.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
-            dataGridView1_Purchase.BackgroundColor = Color.White;
-            dataGridView1_Purchase.EnableHeadersVisualStyles = false;
-            dataGridView1_Purchase.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridView1_Purchase.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(20, 25, 72);
-            dataGridView1_Purchase.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-
-            dataGridView1_Purchase.Columns[0].HeaderText = "اسم التاجر";
-            dataGridView1_Purchase.Columns[1].HeaderText = "رصيد مدين (علي المصنع)";
-            dataGridView1_Purchase.Columns[2].HeaderText = "رصيد دائن (للمصنع)";
-            dataGridView1_Purchase.Columns[3].HeaderText = "حركة الشراء للمصنع";
         }
 
-        private void Search_Click(object sender, EventArgs e)
+        private void Print_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void Btn_search_Expenses_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Update_save_Expenses_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Delete_save_Expenses_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Add_save_Expenses_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void calculate_Click(object sender, EventArgs e)
+        {
+            string exp = "";
+            string rev = "";
+            
             try
             {
                 con.Open();
-                String query = "SELECT Sales.Client_Name, Sum(Sales.Credit_Balance) AS SumOfCredit_Balance, Sum(Sales.Debit_Balance) AS SumOfDebit_Balance, Sum([Debit_Balance]-[Credit_Balance]) AS Expr1 FROM Sales GROUP BY Sales.Client_Name HAVING(((Sales.Client_Name) LIKE '%" + txt_search.Text + "%'))";
-                DataTable dt = new DataTable();
-                OleDbCommand cmd = new OleDbCommand(query, con);
-                OleDbDataAdapter da = new OleDbDataAdapter(cmd);
-                da.Fill(dt);
+                String query = "SELECT Sum(Expenses.Expense_Value) FROM Expenses WHERE Expense_Date Between #" + from.Text + "# And #" + to.Text + "#";
+                OleDbCommand cmd1 = new OleDbCommand(query, con);
+                OleDbDataReader r1 = cmd1.ExecuteReader();
+                r1.Read();
+                
+                exp = r1[0].ToString();
                 con.Close();
-                sales.DataSource = dt;
+
+
+
             }
             catch (Exception ex)
             {
@@ -121,20 +105,19 @@ namespace Elfath_Plastic.Forms
                 con.Close();
             }
 
-        }
-
-        private void Button1_Click(object sender, EventArgs e)
-        {
             try
             {
                 con.Open();
-                String query = "SELECT Purchase.Supplier_Name, Sum(Purchase.Credit_Balance) AS SumOfCredit_Balance, Sum(Purchase.Debit_Balance) AS SumOfDebit_Balance, Sum([Debit_Balance]-[Credit_Balance]) AS Expr1 FROM Purchase GROUP BY Purchase.Supplier_Name HAVING(((Purchase.Supplier_Name) LIKE '%" + textBox1.Text + "%'))";
-                DataTable dt = new DataTable();
-                OleDbCommand cmd = new OleDbCommand(query, con);
-                OleDbDataAdapter da = new OleDbDataAdapter(cmd);
-                da.Fill(dt);
+                String query = "SELECT Sum(Revenues.Revenues_Value) FROM Revenues WHERE Revenues_Date Between #" + from.Text + "# And #" + to.Text + "#";
+                OleDbCommand cmd1 = new OleDbCommand(query, con);
+                OleDbDataReader r1 = cmd1.ExecuteReader();
+                r1.Read();
+    
+                rev = r1[0].ToString();
                 con.Close();
-                dataGridView1_Purchase.DataSource = dt;
+
+
+
             }
             catch (Exception ex)
             {
@@ -145,6 +128,55 @@ namespace Elfath_Plastic.Forms
                 con.Close();
             }
 
+            
+            dataGridView1_report.Rows[0].Cells[0].Value = "مجموع الايراد";
+            dataGridView1_report.Rows[0].Cells[1].Value = rev;
+            dataGridView1_report.Rows[1].Cells[0].Value = "مجموع المصروفات";
+            dataGridView1_report.Rows[1].Cells[1].Value = exp;
+            dataGridView1_report.Rows[2].Cells[0].Value = "صافي الربح";
+            dataGridView1_report.Rows[2].Cells[1].Value = Convert.ToString(float.Parse(rev) - float.Parse(exp));
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void reports_Load(object sender, EventArgs e)
+        {
+            dataGridView1_report.BorderStyle = BorderStyle.None;
+            dataGridView1_report.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
+            dataGridView1_report.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridView1_report.DefaultCellStyle.SelectionBackColor = Color.DarkTurquoise;
+            dataGridView1_report.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
+            dataGridView1_report.BackgroundColor = Color.White;
+            dataGridView1_report.EnableHeadersVisualStyles = false;
+            dataGridView1_report.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridView1_report.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(20, 25, 72);
+            dataGridView1_report.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+
+            dataGridView1_report.Columns.Add("", "");
+            dataGridView1_report.Columns.Add("", "");
+            dataGridView1_report.Rows.Add("", "");
+            dataGridView1_report.Rows.Add("", "");
+            dataGridView1_report.Rows.Add("", "");
+            dataGridView1_report.Columns[0].HeaderText = "البيان";
+            dataGridView1_report.Columns[1].HeaderText = "القيمة";
+        }
+
+        private void print_Click_1(object sender, EventArgs e)
+        {
+            DGVPrinter printer = new DGVPrinter();
+            printer.Title = "صافي الربح ";
+            printer.SubTitle = "الفترة من " + from.Text + " الي " + to.Text;
+            printer.PageNumbers = true;
+            printer.PageNumberInHeader = false;
+            printer.PorportionalColumns = true;
+            printer.HeaderCellAlignment = StringAlignment.Near;
+            printer.printDocument.DefaultPageSettings.Landscape = true;
+            Margins margins = new Margins(0, 0, 0, 0);
+            printer.printDocument.DefaultPageSettings.Margins = margins;
+            printer.PrintPreviewNoDisplay(dataGridView1_report);
         }
     }
 }

@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.num_bank = new System.Windows.Forms.TextBox();
             this.Address = new System.Windows.Forms.TextBox();
             this.Mobile_Number = new System.Windows.Forms.TextBox();
@@ -38,6 +38,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.print_suppliers_status = new System.Windows.Forms.Button();
             this.search_btn_display = new System.Windows.Forms.Button();
             this.search_display_suppliers = new System.Windows.Forms.TextBox();
             this.dataGridView1_display_suppliers = new System.Windows.Forms.DataGridView();
@@ -50,6 +51,9 @@
             this.delete_save_clients = new System.Windows.Forms.Button();
             this.add_save_clients = new System.Windows.Forms.Button();
             this.Supplier_Name = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.comboBox2_Supplier = new System.Windows.Forms.ComboBox();
+            this.Search_Status_ٍSupplier = new System.Windows.Forms.Button();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1_display_suppliers)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -128,6 +132,10 @@
             // tabPage3
             // 
             this.tabPage3.AutoScroll = true;
+            this.tabPage3.Controls.Add(this.label3);
+            this.tabPage3.Controls.Add(this.comboBox2_Supplier);
+            this.tabPage3.Controls.Add(this.Search_Status_ٍSupplier);
+            this.tabPage3.Controls.Add(this.print_suppliers_status);
             this.tabPage3.Controls.Add(this.search_btn_display);
             this.tabPage3.Controls.Add(this.search_display_suppliers);
             this.tabPage3.Controls.Add(this.dataGridView1_display_suppliers);
@@ -140,35 +148,48 @@
             this.tabPage3.Text = "كشف حساب";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // print_suppliers_status
+            // 
+            this.print_suppliers_status.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.print_suppliers_status.Location = new System.Drawing.Point(1192, 15);
+            this.print_suppliers_status.Name = "print_suppliers_status";
+            this.print_suppliers_status.Size = new System.Drawing.Size(103, 40);
+            this.print_suppliers_status.TabIndex = 59;
+            this.print_suppliers_status.Text = "طباعة";
+            this.print_suppliers_status.UseVisualStyleBackColor = true;
+            this.print_suppliers_status.Click += new System.EventHandler(this.print_suppliers_status_Click);
+            // 
             // search_btn_display
             // 
             this.search_btn_display.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.search_btn_display.Location = new System.Drawing.Point(1492, 14);
+            this.search_btn_display.Location = new System.Drawing.Point(695, 38);
             this.search_btn_display.Name = "search_btn_display";
             this.search_btn_display.Size = new System.Drawing.Size(103, 40);
             this.search_btn_display.TabIndex = 58;
-            this.search_btn_display.Text = "بحث";
+            this.search_btn_display.Text = "بحث قديم";
             this.search_btn_display.UseVisualStyleBackColor = true;
+            this.search_btn_display.Visible = false;
             this.search_btn_display.Click += new System.EventHandler(this.Search_btn_display_Click);
             // 
             // search_display_suppliers
             // 
             this.search_display_suppliers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.search_display_suppliers.Location = new System.Drawing.Point(1621, 14);
+            this.search_display_suppliers.Location = new System.Drawing.Point(824, 38);
             this.search_display_suppliers.Name = "search_display_suppliers";
             this.search_display_suppliers.Size = new System.Drawing.Size(268, 36);
             this.search_display_suppliers.TabIndex = 57;
+            this.search_display_suppliers.Visible = false;
             // 
             // dataGridView1_display_suppliers
             // 
             this.dataGridView1_display_suppliers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1_display_suppliers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1_display_suppliers.Location = new System.Drawing.Point(222, 69);
+            this.dataGridView1_display_suppliers.Location = new System.Drawing.Point(1181, 69);
             this.dataGridView1_display_suppliers.Name = "dataGridView1_display_suppliers";
             this.dataGridView1_display_suppliers.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dataGridView1_display_suppliers.RowHeadersWidth = 51;
             this.dataGridView1_display_suppliers.RowTemplate.Height = 24;
-            this.dataGridView1_display_suppliers.Size = new System.Drawing.Size(1667, 533);
+            this.dataGridView1_display_suppliers.Size = new System.Drawing.Size(708, 332);
             this.dataGridView1_display_suppliers.TabIndex = 56;
             // 
             // tabControl1
@@ -216,22 +237,22 @@
             this.dataGridView1_add_suppliers.AllowUserToAddRows = false;
             this.dataGridView1_add_suppliers.AllowUserToDeleteRows = false;
             this.dataGridView1_add_suppliers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1_add_suppliers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1_add_suppliers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1_add_suppliers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1_add_suppliers.Location = new System.Drawing.Point(300, 150);
             this.dataGridView1_add_suppliers.Name = "dataGridView1_add_suppliers";
             this.dataGridView1_add_suppliers.ReadOnly = true;
             this.dataGridView1_add_suppliers.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dataGridView1_add_suppliers.RowHeadersWidth = 51;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.dataGridView1_add_suppliers.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.dataGridView1_add_suppliers.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1_add_suppliers.RowTemplate.Height = 25;
             this.dataGridView1_add_suppliers.Size = new System.Drawing.Size(1576, 354);
             this.dataGridView1_add_suppliers.TabIndex = 57;
@@ -297,6 +318,36 @@
             this.Supplier_Name.Size = new System.Drawing.Size(306, 36);
             this.Supplier_Name.TabIndex = 13;
             // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(1788, 23);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(103, 29);
+            this.label3.TabIndex = 63;
+            this.label3.Text = "اسم المورد";
+            // 
+            // comboBox2_Supplier
+            // 
+            this.comboBox2_Supplier.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox2_Supplier.FormattingEnabled = true;
+            this.comboBox2_Supplier.Location = new System.Drawing.Point(1440, 18);
+            this.comboBox2_Supplier.Name = "comboBox2_Supplier";
+            this.comboBox2_Supplier.Size = new System.Drawing.Size(288, 37);
+            this.comboBox2_Supplier.TabIndex = 62;
+            // 
+            // Search_Status_ٍSupplier
+            // 
+            this.Search_Status_ٍSupplier.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Search_Status_ٍSupplier.Location = new System.Drawing.Point(1301, 15);
+            this.Search_Status_ٍSupplier.Name = "Search_Status_ٍSupplier";
+            this.Search_Status_ٍSupplier.Size = new System.Drawing.Size(103, 40);
+            this.Search_Status_ٍSupplier.TabIndex = 61;
+            this.Search_Status_ٍSupplier.Text = "بحث";
+            this.Search_Status_ٍSupplier.UseVisualStyleBackColor = true;
+            this.Search_Status_ٍSupplier.Click += new System.EventHandler(this.Search_Status_ٍSupplier_Click);
+            // 
             // suppliers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -338,5 +389,9 @@
         private System.Windows.Forms.Button search_btn_display;
         private System.Windows.Forms.TextBox search_display_suppliers;
         private System.Windows.Forms.DataGridView dataGridView1_display_suppliers;
+        private System.Windows.Forms.Button print_suppliers_status;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox comboBox2_Supplier;
+        private System.Windows.Forms.Button Search_Status_ٍSupplier;
     }
 }

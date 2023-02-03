@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using DGVPrinterHelper;
+using System.Drawing.Printing;
 
 namespace Elfath_Plastic.Forms
 {
@@ -48,18 +50,7 @@ namespace Elfath_Plastic.Forms
             return dt;
         }
 
-        public DataTable load2()
-        {
-
-            con.Open();
-            String query = "SELECT Purchase.Supplier_Name, Sum(Purchase.Credit_Balance) AS SumOfCredit_Balance, Sum(Purchase.Debit_Balance) AS SumOfDebit_Balance, Sum([Debit_Balance]-[Credit_Balance]) AS Expr1 FROM Purchase GROUP BY Purchase.Supplier_Name";
-            DataTable dt = new DataTable();
-            OleDbCommand cmd = new OleDbCommand(query, con);
-            OleDbDataAdapter da = new OleDbDataAdapter(cmd);
-            da.Fill(dt);
-            con.Close();
-            return dt;
-        }
+       
 
         public void Insert()
         {
@@ -75,7 +66,6 @@ namespace Elfath_Plastic.Forms
                 cmd.ExecuteNonQuery();
                 con.Close();
                 dataGridView1_add_suppliers.DataSource = load();
-                dataGridView1_display_suppliers.DataSource = load2();
             }
             catch (Exception ex)
             {
@@ -111,7 +101,6 @@ namespace Elfath_Plastic.Forms
 
 
 
-            dataGridView1_display_suppliers.DataSource = load2();
             dataGridView1_display_suppliers.BorderStyle = BorderStyle.None;
             dataGridView1_display_suppliers.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
             dataGridView1_display_suppliers.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
@@ -124,10 +113,36 @@ namespace Elfath_Plastic.Forms
             dataGridView1_display_suppliers.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
 
 
-            dataGridView1_display_suppliers.Columns[0].HeaderText = "اسم التاجر";
-            dataGridView1_display_suppliers.Columns[1].HeaderText = "رصيد مدين (علي المصنع)";
-            dataGridView1_display_suppliers.Columns[2].HeaderText = "رصيد دائن (للمصنع)";
-            dataGridView1_display_suppliers.Columns[3].HeaderText = "حركة الشراء للمصنع";
+            dataGridView1_display_suppliers.Columns.Add("", "");
+            dataGridView1_display_suppliers.Columns.Add("", "");
+            dataGridView1_display_suppliers.Columns.Add("", "");
+            dataGridView1_display_suppliers.Columns.Add("", "");
+            dataGridView1_display_suppliers.Columns.Add("", "");
+            dataGridView1_display_suppliers.Rows.Add("", "");
+            dataGridView1_display_suppliers.Columns[0].HeaderText = "اسم المورد";
+            dataGridView1_display_suppliers.Columns[2].HeaderText = "رصيد مدين (علي المورد)";
+            dataGridView1_display_suppliers.Columns[1].HeaderText = "رصيد دائن (علي المصنع)";
+            dataGridView1_display_suppliers.Columns[3].HeaderText = "الاقساط";
+            dataGridView1_display_suppliers.Columns[4].HeaderText = "مجموع حساب المصنع";
+
+            try
+            {
+                con.Open();
+                String query = "SELECT Supplier_Name FROM Suppliers";
+                OleDbCommand cmd = new OleDbCommand(query, con);
+                OleDbDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    comboBox2_Supplier.Items.Add(reader[0].ToString());
+
+                }
+                con.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void Add_save_clients_Click(object sender, EventArgs e)
@@ -170,7 +185,7 @@ namespace Elfath_Plastic.Forms
                 cmd.ExecuteNonQuery();
                 con.Close();
                 dataGridView1_add_suppliers.DataSource = load();
-                dataGridView1_display_suppliers.DataSource = load2();
+                
 
             }
             catch (Exception ex)
@@ -193,7 +208,6 @@ namespace Elfath_Plastic.Forms
                 cmd.ExecuteNonQuery();
                 con.Close();
                 dataGridView1_add_suppliers.DataSource = load();
-                dataGridView1_display_suppliers.DataSource = load2();
 
             }
             catch (Exception ex)
@@ -250,6 +264,116 @@ namespace Elfath_Plastic.Forms
             {
                 con.Close();
             }
+        }
+
+        private void print_suppliers_status_Click(object sender, EventArgs e)
+        {
+            DGVPrinter printer = new DGVPrinter();
+            printer.Title = "كشف حساب التجار";
+            printer.PageNumbers = true;
+            printer.PageNumberInHeader = false;
+            printer.PorportionalColumns = true;
+            printer.HeaderCellAlignment = StringAlignment.Near;
+            printer.printDocument.DefaultPageSettings.Landscape = true;
+            Margins margins = new Margins(0, 0, 0, 0);
+            printer.printDocument.DefaultPageSettings.Margins = margins;
+            printer.PrintPreviewNoDisplay(dataGridView1_display_suppliers);
+        }
+
+        private void Search_Status_ٍSupplier_Click(object sender, EventArgs e)
+        {
+            float on_supplier_float = 0, on_factory_float = 0, inst_float = 0;
+            try
+            {
+                con.Open();
+                String query = "SELECT Sum(Purchase.Credit_Balance) AS SumOfCredit_Balance FROM Purchase WHERE (((Purchase.Supplier_Name)=" + "'" + comboBox2_Supplier.Text + "'" + "))";
+                OleDbCommand cmd = new OleDbCommand(query, con);
+                OleDbDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+
+                    if (reader[0].ToString() == "")
+                    {
+                        on_supplier_float = 0;
+                    }
+                    else
+                    {
+                        on_supplier_float = float.Parse(reader[0].ToString());
+                    }
+
+
+                }
+                con.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            try
+            {
+                con.Open();
+                String query = "SELECT Sum(Purchase.Debit_Balance) AS Debit_Balance FROM Purchase WHERE (((Purchase.Supplier_Name)=" + "'" + comboBox2_Supplier.Text + "'" + "))";
+                OleDbCommand cmd = new OleDbCommand(query, con);
+                OleDbDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+
+                    if (reader[0].ToString() == "")
+                    {
+                        on_factory_float = 0;
+                    }
+                    else
+                    {
+                        on_factory_float = float.Parse(reader[0].ToString());
+                    }
+
+                }
+                con.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            try
+            {
+                con.Open();
+                String query = "SELECT Sum(Factory_installment.installment_value) AS SumOfinstallment_value FROM Factory_installment WHERE (((Factory_installment.Supplier_Name)=" + "'" + comboBox2_Supplier.Text + "'" + "))";
+                OleDbCommand cmd = new OleDbCommand(query, con);
+                OleDbDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    if (reader[0].ToString() == "")
+                    {
+                        inst_float = 0;
+                    }
+                    else
+                    {
+                        inst_float = float.Parse(reader[0].ToString());
+                    }
+
+
+                    float diff = ((on_factory_float + inst_float) - on_supplier_float);
+                    dataGridView1_display_suppliers.Rows[0].Cells[0].Value = comboBox2_Supplier.Text;
+                    dataGridView1_display_suppliers.Rows[0].Cells[1].Value = on_supplier_float.ToString();
+                    dataGridView1_display_suppliers.Rows[0].Cells[2].Value = on_factory_float.ToString();
+                    dataGridView1_display_suppliers.Rows[0].Cells[3].Value = inst_float.ToString();
+                    dataGridView1_display_suppliers.Rows[0].Cells[4].Value = diff.ToString();
+
+
+
+                }
+                con.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
     }
 }

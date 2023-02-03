@@ -125,7 +125,7 @@
             this.reports.Name = "reports";
             this.reports.Size = new System.Drawing.Size(296, 50);
             this.reports.TabIndex = 16;
-            this.reports.Text = "التقارير";
+            this.reports.Text = "صافي الربح";
             this.reports.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.reports.UseVisualStyleBackColor = true;
             this.reports.Click += new System.EventHandler(this.Reports_Click);

@@ -140,7 +140,7 @@
             // cal
             // 
             this.cal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cal.Location = new System.Drawing.Point(1054, 776);
+            this.cal.Location = new System.Drawing.Point(1110, 777);
             this.cal.Name = "cal";
             this.cal.Size = new System.Drawing.Size(103, 40);
             this.cal.TabIndex = 74;
@@ -151,7 +151,7 @@
             // search_from_to
             // 
             this.search_from_to.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.search_from_to.Location = new System.Drawing.Point(1193, 776);
+            this.search_from_to.Location = new System.Drawing.Point(1219, 776);
             this.search_from_to.Name = "search_from_to";
             this.search_from_to.Size = new System.Drawing.Size(103, 40);
             this.search_from_to.TabIndex = 73;

@@ -50,6 +50,33 @@ namespace Elfath_Plastic.Forms
             con.Close();
             return dt;
         }
+        public DataTable loadconsume()
+        {
+
+            con.Open();
+            String query = "SELECT Client_Name, Products_Name, Quantity, Total_invoice, Amount_Paid FROM Sales where Client_Name = ''";
+
+            DataTable dt = new DataTable();
+            OleDbCommand cmd = new OleDbCommand(query, con);
+            OleDbDataAdapter da = new OleDbDataAdapter(cmd);
+            da.Fill(dt);
+            con.Close();
+            return dt;
+        }
+
+        public DataTable loadinstallments()
+        {
+
+            con.Open();
+            String query = "SELECT ID, Client_Name , installment_Name , installment_value , Date_installment FROM Clients_installment";
+
+            DataTable dt = new DataTable();
+            OleDbCommand cmd = new OleDbCommand(query, con);
+            OleDbDataAdapter da = new OleDbDataAdapter(cmd);
+            da.Fill(dt);
+            con.Close();
+            return dt;
+        }
 
 
         private void Sales_Load(object sender, EventArgs e)
@@ -82,6 +109,43 @@ namespace Elfath_Plastic.Forms
             dataGridView1_add_sales.Columns[11].HeaderText = "رصيد مدين (عليه)";
             dataGridView1_add_sales.Columns[12].HeaderText = "رصيد دائن (له)";
 
+            consume_dataGridView1.DataSource = loadconsume();
+            consume_dataGridView1.BorderStyle = BorderStyle.None;
+            consume_dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
+            consume_dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            consume_dataGridView1.DefaultCellStyle.SelectionBackColor = Color.DarkTurquoise;
+            consume_dataGridView1.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
+            consume_dataGridView1.BackgroundColor = Color.White;
+            consume_dataGridView1.EnableHeadersVisualStyles = false;
+            consume_dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            consume_dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(20, 25, 72);
+            consume_dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+
+            consume_dataGridView1.Columns[0].HeaderText = "اسم العميل";
+            consume_dataGridView1.Columns[1].HeaderText = "اسم المنتج";
+            consume_dataGridView1.Columns[2].HeaderText = "الكمية";
+            consume_dataGridView1.Columns[3].HeaderText = "مجموع الفواتير";
+            consume_dataGridView1.Columns[4].HeaderText = "مجموع المدفوعات";
+
+            dataGridView1_Clients_installment.DataSource = loadinstallments();
+            dataGridView1_Clients_installment.BorderStyle = BorderStyle.None;
+            dataGridView1_Clients_installment.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
+            dataGridView1_Clients_installment.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridView1_Clients_installment.DefaultCellStyle.SelectionBackColor = Color.DarkTurquoise;
+            dataGridView1_Clients_installment.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
+            dataGridView1_Clients_installment.BackgroundColor = Color.White;
+            dataGridView1_Clients_installment.EnableHeadersVisualStyles = false;
+            dataGridView1_Clients_installment.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridView1_Clients_installment.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(20, 25, 72);
+            dataGridView1_Clients_installment.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+
+            dataGridView1_Clients_installment.Columns[0].HeaderText = "ID";
+            dataGridView1_Clients_installment.Columns[1].HeaderText = "اسم العميل";
+            dataGridView1_Clients_installment.Columns[2].HeaderText = "اسم القسط";
+            dataGridView1_Clients_installment.Columns[3].HeaderText = "قيمة القسط";
+            dataGridView1_Clients_installment.Columns[4].HeaderText = "تاريخ القسط";
+            
+
 
             try
             {
@@ -92,6 +156,8 @@ namespace Elfath_Plastic.Forms
                 while (reader.Read())
                 {
                     Client_Name.Items.Add(reader[0].ToString());
+                    consume_client.Items.Add(reader[0].ToString());
+                    comboBox1_Client_Name.Items.Add(reader[0].ToString());
                 }
                 con.Close();
 
@@ -333,14 +399,30 @@ namespace Elfath_Plastic.Forms
         {
             try
             {
-                con.Open();
-                String query = "SELECT ID , Sale_invoice_Date , Discount , Tax , Client_Name , Products_Name , Quantity , Price , Total_invoice ,  Amount_Paid , Notes , Credit_Balance , Debit_Balance FROM sales WHERE Sale_invoice_Date Between #" + from.Text + "# And #" + to.Text + "#";
-                DataTable dt = new DataTable();
-                OleDbCommand cmd = new OleDbCommand(query, con);
-                OleDbDataAdapter da = new OleDbDataAdapter(cmd);
-                da.Fill(dt);
-                con.Close();
-                dataGridView1_add_sales.DataSource = dt;
+                if (search_sales.Text=="") 
+                {
+                    con.Open();
+                    String query = "SELECT ID , Sale_invoice_Date , Discount , Tax , Client_Name , Products_Name , Quantity , Price , Total_invoice ,  Amount_Paid , Notes , Credit_Balance , Debit_Balance FROM sales WHERE Sale_invoice_Date Between #" + from.Text + "# And #" + to.Text + "#";
+                    DataTable dt = new DataTable();
+                    OleDbCommand cmd = new OleDbCommand(query, con);
+                    OleDbDataAdapter da = new OleDbDataAdapter(cmd);
+                    da.Fill(dt);
+                    con.Close();
+                    dataGridView1_add_sales.DataSource = dt;
+                }
+                else
+                {
+                    con.Open();
+                    String query = "SELECT ID , Sale_invoice_Date , Discount , Tax , Client_Name , Products_Name , Quantity , Price , Total_invoice ,  Amount_Paid , Notes , Credit_Balance , Debit_Balance FROM sales WHERE Client_Name LIKE '%" + search_sales.Text + "%' and Sale_invoice_Date Between #" + from.Text + "# And #" + to.Text + "#";
+                    DataTable dt = new DataTable();
+                    OleDbCommand cmd = new OleDbCommand(query, con);
+                    OleDbDataAdapter da = new OleDbDataAdapter(cmd);
+                    da.Fill(dt);
+                    con.Close();
+                    dataGridView1_add_sales.DataSource = dt;
+
+                }
+                
             }
             catch (Exception ex)
             {
@@ -373,6 +455,295 @@ namespace Elfath_Plastic.Forms
             this.dataGridView1_add_sales.Columns["Credit_Balance"].Visible = true;
             this.dataGridView1_add_sales.Columns["Notes"].Visible = true;
 
+        }
+
+        private void label17_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (consume_product.Text=="") 
+                {
+                    con.Open();
+                    String query = "SELECT Sales.Client_Name, Sales.Products_Name, Sum(Sales.Quantity) AS Quantity, Sum(Sales.Total_invoice) AS Total_invoices, Sum(Sales.Amount_Paid) AS Amount_Paid FROM Sales WHERE (((Sales.Client_Name)="  +"'"+consume_client.Text + "'" + ") AND ((Sales.Sale_invoice_Date) Between #" + consume_from.Text + "# And #" + consume_to.Text + "#)) GROUP BY Sales.Client_Name, Sales.Products_Name;";
+                    DataTable dt = new DataTable();
+                    OleDbCommand cmd = new OleDbCommand(query, con);
+                    OleDbDataAdapter da = new OleDbDataAdapter(cmd);
+                    da.Fill(dt);
+                    con.Close();
+                    consume_dataGridView1.DataSource = dt;
+                    consume_dataGridView1.Columns[3].HeaderText = "مجموع الفواتير";
+
+                }
+                else
+                {
+                    con.Open();
+                    String query = "SELECT Sales.Client_Name, Sales.Products_Name, Sum(Sales.Quantity) AS Quantity, Sum(Sales.Total_invoice) AS Total_invoices, Sum(Sales.Amount_Paid) AS Amount_Paid FROM Sales WHERE (((Sales.Client_Name)=" + "'" + consume_client.Text +"'"+ ") AND ((Sales.Products_Name)="  +"'" + consume_product.Text  +"'" + ") AND ((Sales.Sale_invoice_Date) Between #" + consume_from.Text + "# And #" + consume_to.Text + "#)) GROUP BY Sales.Client_Name, Sales.Products_Name;";
+                    
+                    DataTable dt = new DataTable();
+                    OleDbCommand cmd = new OleDbCommand(query, con);
+                    OleDbDataAdapter da = new OleDbDataAdapter(cmd);
+                    da.Fill(dt);
+                    con.Close();
+                    consume_dataGridView1.DataSource = dt;
+                    consume_dataGridView1.Columns[3].HeaderText = "مجموع الفواتير";
+
+                }        
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+
+        }
+
+        private void consume_print_Click(object sender, EventArgs e)
+        {
+            DGVPrinter printer = new DGVPrinter();
+            printer.Title = "فاتورة استهلاك العميل : " + consume_client.Text;
+            printer.SubTitle = "الفترة من " + consume_from.Text + " الي " + consume_to.Text;
+            printer.PageNumbers = true;
+            printer.PageNumberInHeader = false;
+            printer.PorportionalColumns = true;
+            printer.HeaderCellAlignment = StringAlignment.Near;
+            printer.printDocument.DefaultPageSettings.Landscape = true;
+            Margins margins = new Margins(0, 0, 0, 0);
+            printer.printDocument.DefaultPageSettings.Margins = margins;
+            printer.PrintPreviewNoDisplay(consume_dataGridView1);
+
+        }
+
+        private void tabPage3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void update_Clients_installment_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                con.Open();
+                string query = "UPDATE Clients_installment SET Client_Name=@Client_Name , installment_Name=@installment_Name , installment_value=@installment_value , Date_installment=@Date_installment WHERE ID=" + dataGridView1_Clients_installment.CurrentRow.Cells[0].Value.ToString() + "";
+                OleDbCommand cmd = new OleDbCommand(query, con);
+                cmd.Parameters.AddWithValue("@Client_Name", comboBox1_Client_Name.Text);
+                cmd.Parameters.AddWithValue("@installment_Name", installment_Name.Text);
+                cmd.Parameters.AddWithValue("@installment_value", installment_value.Text);
+                cmd.Parameters.AddWithValue("@Date_installment", Date_installment.Text);
+                cmd.ExecuteNonQuery();
+                con.Close();
+                dataGridView1_Clients_installment.DataSource = loadinstallments();
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+
+
+            try
+            {
+                string var1 = "   دفع قسط من العميل  " + comboBox1_Client_Name.Text + " عن    " + installment_Name.Text;
+                con.Open();
+                String q8 = "UPDATE Revenues SET Revenues_Name=@Revenues_Name , Revenues_Value=@Revenues_Value, Revenues_Date=@Revenues_Date WHERE Revenues_Name LIKE '%" + var1 + "%'";
+                OleDbCommand cmd8 = new OleDbCommand(q8, con);
+                cmd8.Parameters.AddWithValue("@Revenues_Name", "   دفع قسط من العميل  " + comboBox1_Client_Name.Text + " عن    " + installment_Name.Text);
+                cmd8.Parameters.AddWithValue("@Revenues_Value", installment_value.Text);
+                cmd8.Parameters.AddWithValue("@Revenues_Date", Date_installment.Text);
+                cmd8.ExecuteNonQuery();
+                con.Close();
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+
+        }
+
+        private void add_Clients_installment_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                con.Open();
+                String query = "INSERT INTO Clients_installment(Client_Name , installment_Name , installment_value , Date_installment) VALUES (@Client_Name , @installment_Name , @installment_value , @Date_installment)";
+                OleDbCommand cmd = new OleDbCommand(query, con);
+                cmd.Parameters.AddWithValue("@Client_Name", comboBox1_Client_Name.Text);
+                cmd.Parameters.AddWithValue("@installment_Name", installment_Name.Text);
+                cmd.Parameters.AddWithValue("@installment_value", installment_value.Text);
+                cmd.Parameters.AddWithValue("@Date_installment", Date_installment.Text);
+                cmd.ExecuteNonQuery();
+                con.Close();
+                dataGridView1_Clients_installment.DataSource = loadinstallments();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            try
+            {
+                con.Open();
+                String q8 = "INSERT INTO Revenues(Revenues_Name , Revenues_Value , Revenues_Date) VALUES (@Revenues_Name , @Revenues_Value , @Revenues_Date)";
+                OleDbCommand cmd8 = new OleDbCommand(q8, con);
+               cmd8.Parameters.AddWithValue("@Revenues_Name","   دفع قسط من العميل  " + comboBox1_Client_Name.Text  +" عن    "+installment_Name.Text );
+                cmd8.Parameters.AddWithValue("@Revenues_Value", installment_value.Text);
+                cmd8.Parameters.AddWithValue("@Revenues_Date", Date_installment.Text);
+                cmd8.ExecuteNonQuery();
+                con.Close();
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+
+        }
+
+        private void dataGridView1_Clients_installment_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (dataGridView1_Clients_installment.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                {
+                    dataGridView1_Clients_installment.CurrentRow.Selected = true;
+                    Date_installment.Text = dataGridView1_Clients_installment.Rows[e.RowIndex].Cells["Date_installment"].FormattedValue.ToString();
+                    comboBox1_Client_Name.Text = dataGridView1_Clients_installment.Rows[e.RowIndex].Cells["Client_Name"].FormattedValue.ToString();
+                    installment_Name.Text = dataGridView1_Clients_installment.Rows[e.RowIndex].Cells["installment_Name"].FormattedValue.ToString();
+                    installment_value.Text = dataGridView1_Clients_installment.Rows[e.RowIndex].Cells["installment_value"].FormattedValue.ToString();
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void delete_Clients_installment_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                con.Open();
+                string query = "DELETE FROM Clients_installment WHERE ID=" + dataGridView1_Clients_installment.CurrentRow.Cells[0].Value.ToString() + "";
+                OleDbCommand cmd = new OleDbCommand(query, con);
+                cmd.ExecuteNonQuery();
+                con.Close();
+                dataGridView1_Clients_installment.DataSource = loadinstallments();
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+
+           try
+            {
+                string var1 = "   دفع قسط من العميل  " + comboBox1_Client_Name.Text + " عن    " + installment_Name.Text;
+                con.Open();
+                string query = "DELETE FROM Revenues WHERE Revenues_Name LIKE '%" + var1 + "%'";
+                OleDbCommand cmd = new OleDbCommand(query, con);
+                cmd.ExecuteNonQuery();
+                con.Close();
+                dataGridView1_add_sales.DataSource = load();
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        private void print_Clients_installment_Click(object sender, EventArgs e)
+        {
+            DGVPrinter printer = new DGVPrinter();
+            printer.Title = "اقساط العملاء ";
+            printer.PageNumbers = true;
+            printer.PageNumberInHeader = false;
+            printer.PorportionalColumns = true;
+            printer.HeaderCellAlignment = StringAlignment.Near;
+            printer.printDocument.DefaultPageSettings.Landscape = true;
+            Margins margins = new Margins(0, 0, 0, 0);
+            printer.printDocument.DefaultPageSettings.Margins = margins;
+            printer.PrintPreviewNoDisplay(dataGridView1_Clients_installment);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+      
+            try
+            {
+                con.Open();
+                String query = "SELECT ID, Client_Name , installment_Name , installment_value , Date_installment FROM Clients_installment WHERE Client_Name LIKE '%" + client_inst_search.Text + "%'";
+                DataTable dt = new DataTable();
+                OleDbCommand cmd = new OleDbCommand(query, con);
+                OleDbDataAdapter da = new OleDbDataAdapter(cmd);
+                da.Fill(dt);
+                con.Close();
+                dataGridView1_Clients_installment.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
         }
     }
 }
