@@ -120,6 +120,8 @@ namespace Elfath_Plastic.Forms
                 {
                     Supplier_Name.Items.Add(reader[0].ToString());
                     comboBox1_Supplier_Name.Items.Add(reader[0].ToString());
+                    search_purchase.Items.Add(reader[0].ToString());
+                    Factory_inst_search.Items.Add(reader[0].ToString());
                 }
                 con.Close();
 
@@ -129,7 +131,26 @@ namespace Elfath_Plastic.Forms
                 MessageBox.Show(ex.Message);
             }
 
-            
+            try
+            {
+                con.Open();
+                String query = "SELECT Material_Name FROM Materials_Store";
+                OleDbCommand cmd = new OleDbCommand(query, con);
+                OleDbDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Material_Name.Items.Add(reader[0].ToString());
+
+                }
+                con.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
 
 
         }

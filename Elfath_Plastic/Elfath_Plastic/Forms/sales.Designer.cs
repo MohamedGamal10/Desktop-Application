@@ -37,6 +37,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.Products_Name = new System.Windows.Forms.ComboBox();
+            this.search_sales = new System.Windows.Forms.ComboBox();
             this.print = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -48,11 +50,9 @@
             this.from = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.Products_Name = new System.Windows.Forms.TextBox();
             this.Client_Name = new System.Windows.Forms.ComboBox();
             this.Sale_invoice_Date = new System.Windows.Forms.DateTimePicker();
             this.btn_search_sales = new System.Windows.Forms.Button();
-            this.search_sales = new System.Windows.Forms.TextBox();
             this.dataGridView1_add_sales = new System.Windows.Forms.DataGridView();
             this.update_save_sales = new System.Windows.Forms.Button();
             this.delete_save_sales = new System.Windows.Forms.Button();
@@ -81,7 +81,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.consume_from = new System.Windows.Forms.DateTimePicker();
             this.label17 = new System.Windows.Forms.Label();
-            this.consume_product = new System.Windows.Forms.TextBox();
             this.consume_client = new System.Windows.Forms.ComboBox();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -95,13 +94,14 @@
             this.comboBox1_Client_Name = new System.Windows.Forms.ComboBox();
             this.Date_installment = new System.Windows.Forms.DateTimePicker();
             this.button3 = new System.Windows.Forms.Button();
-            this.client_inst_search = new System.Windows.Forms.TextBox();
             this.dataGridView1_Clients_installment = new System.Windows.Forms.DataGridView();
             this.update_Clients_installment = new System.Windows.Forms.Button();
             this.delete_Clients_installment = new System.Windows.Forms.Button();
             this.add_Clients_installment = new System.Windows.Forms.Button();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
+            this.client_inst_search = new System.Windows.Forms.ComboBox();
+            this.consume_product = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1_add_sales)).BeginInit();
@@ -129,6 +129,8 @@
             // tabPage1
             // 
             this.tabPage1.AutoScroll = true;
+            this.tabPage1.Controls.Add(this.Products_Name);
+            this.tabPage1.Controls.Add(this.search_sales);
             this.tabPage1.Controls.Add(this.print);
             this.tabPage1.Controls.Add(this.label16);
             this.tabPage1.Controls.Add(this.button1);
@@ -140,11 +142,9 @@
             this.tabPage1.Controls.Add(this.from);
             this.tabPage1.Controls.Add(this.label10);
             this.tabPage1.Controls.Add(this.label9);
-            this.tabPage1.Controls.Add(this.Products_Name);
             this.tabPage1.Controls.Add(this.Client_Name);
             this.tabPage1.Controls.Add(this.Sale_invoice_Date);
             this.tabPage1.Controls.Add(this.btn_search_sales);
-            this.tabPage1.Controls.Add(this.search_sales);
             this.tabPage1.Controls.Add(this.dataGridView1_add_sales);
             this.tabPage1.Controls.Add(this.update_save_sales);
             this.tabPage1.Controls.Add(this.delete_save_sales);
@@ -173,6 +173,24 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "اضافة وتعديل";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // Products_Name
+            // 
+            this.Products_Name.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Products_Name.FormattingEnabled = true;
+            this.Products_Name.Location = new System.Drawing.Point(1439, 256);
+            this.Products_Name.Name = "Products_Name";
+            this.Products_Name.Size = new System.Drawing.Size(306, 37);
+            this.Products_Name.TabIndex = 84;
+            // 
+            // search_sales
+            // 
+            this.search_sales.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.search_sales.FormattingEnabled = true;
+            this.search_sales.Location = new System.Drawing.Point(1402, 727);
+            this.search_sales.Name = "search_sales";
+            this.search_sales.Size = new System.Drawing.Size(306, 37);
+            this.search_sales.TabIndex = 83;
             // 
             // print
             // 
@@ -284,14 +302,6 @@
             this.label9.TabIndex = 72;
             this.label9.Text = "بحث باسم العميل";
             // 
-            // Products_Name
-            // 
-            this.Products_Name.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Products_Name.Location = new System.Drawing.Point(1439, 256);
-            this.Products_Name.Name = "Products_Name";
-            this.Products_Name.Size = new System.Drawing.Size(306, 36);
-            this.Products_Name.TabIndex = 61;
-            // 
             // Client_Name
             // 
             this.Client_Name.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -320,14 +330,6 @@
             this.btn_search_sales.Text = "بحث";
             this.btn_search_sales.UseVisualStyleBackColor = true;
             this.btn_search_sales.Click += new System.EventHandler(this.Btn_search_sales_Click);
-            // 
-            // search_sales
-            // 
-            this.search_sales.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.search_sales.Location = new System.Drawing.Point(1397, 720);
-            this.search_sales.Name = "search_sales";
-            this.search_sales.Size = new System.Drawing.Size(268, 36);
-            this.search_sales.TabIndex = 56;
             // 
             // dataGridView1_add_sales
             // 
@@ -550,6 +552,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.consume_product);
             this.tabPage2.Controls.Add(this.consume_print);
             this.tabPage2.Controls.Add(this.consume_dataGridView1);
             this.tabPage2.Controls.Add(this.consume_search);
@@ -557,7 +560,6 @@
             this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Controls.Add(this.consume_from);
             this.tabPage2.Controls.Add(this.label17);
-            this.tabPage2.Controls.Add(this.consume_product);
             this.tabPage2.Controls.Add(this.consume_client);
             this.tabPage2.Controls.Add(this.label18);
             this.tabPage2.Controls.Add(this.label19);
@@ -658,14 +660,6 @@
             this.label17.Text = "من ";
             this.label17.Click += new System.EventHandler(this.label17_Click);
             // 
-            // consume_product
-            // 
-            this.consume_product.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.consume_product.Location = new System.Drawing.Point(1446, 92);
-            this.consume_product.Name = "consume_product";
-            this.consume_product.Size = new System.Drawing.Size(306, 36);
-            this.consume_product.TabIndex = 81;
-            // 
             // consume_client
             // 
             this.consume_client.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -700,6 +694,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.client_inst_search);
             this.tabPage3.Controls.Add(this.installment_Name);
             this.tabPage3.Controls.Add(this.label24);
             this.tabPage3.Controls.Add(this.print_Clients_installment);
@@ -709,7 +704,6 @@
             this.tabPage3.Controls.Add(this.comboBox1_Client_Name);
             this.tabPage3.Controls.Add(this.Date_installment);
             this.tabPage3.Controls.Add(this.button3);
-            this.tabPage3.Controls.Add(this.client_inst_search);
             this.tabPage3.Controls.Add(this.dataGridView1_Clients_installment);
             this.tabPage3.Controls.Add(this.update_Clients_installment);
             this.tabPage3.Controls.Add(this.delete_Clients_installment);
@@ -814,19 +808,12 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // client_inst_search
-            // 
-            this.client_inst_search.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.client_inst_search.Location = new System.Drawing.Point(1397, 643);
-            this.client_inst_search.Name = "client_inst_search";
-            this.client_inst_search.Size = new System.Drawing.Size(268, 36);
-            this.client_inst_search.TabIndex = 89;
-            // 
             // dataGridView1_Clients_installment
             // 
             this.dataGridView1_Clients_installment.AllowUserToAddRows = false;
             this.dataGridView1_Clients_installment.AllowUserToDeleteRows = false;
             this.dataGridView1_Clients_installment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1_Clients_installment.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -836,7 +823,7 @@
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1_Clients_installment.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1_Clients_installment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1_Clients_installment.Location = new System.Drawing.Point(1123, 214);
+            this.dataGridView1_Clients_installment.Location = new System.Drawing.Point(784, 214);
             this.dataGridView1_Clients_installment.Name = "dataGridView1_Clients_installment";
             this.dataGridView1_Clients_installment.ReadOnly = true;
             this.dataGridView1_Clients_installment.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -844,7 +831,7 @@
             dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.dataGridView1_Clients_installment.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1_Clients_installment.RowTemplate.Height = 25;
-            this.dataGridView1_Clients_installment.Size = new System.Drawing.Size(755, 354);
+            this.dataGridView1_Clients_installment.Size = new System.Drawing.Size(1094, 354);
             this.dataGridView1_Clients_installment.TabIndex = 88;
             this.dataGridView1_Clients_installment.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_Clients_installment_CellContentClick);
             // 
@@ -903,6 +890,25 @@
             this.label23.TabIndex = 83;
             this.label23.Text = "تاريخ القسط";
             // 
+            // client_inst_search
+            // 
+            this.client_inst_search.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.client_inst_search.FormattingEnabled = true;
+            this.client_inst_search.Location = new System.Drawing.Point(1409, 646);
+            this.client_inst_search.Name = "client_inst_search";
+            this.client_inst_search.Size = new System.Drawing.Size(246, 37);
+            this.client_inst_search.TabIndex = 99;
+            // 
+            // consume_product
+            // 
+            this.consume_product.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.consume_product.FormattingEnabled = true;
+            this.consume_product.Location = new System.Drawing.Point(1446, 83);
+            this.consume_product.Name = "consume_product";
+            this.consume_product.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.consume_product.Size = new System.Drawing.Size(306, 37);
+            this.consume_product.TabIndex = 89;
+            // 
             // sales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -949,14 +955,12 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label Total_invoice;
         private System.Windows.Forms.Button btn_search_sales;
-        private System.Windows.Forms.TextBox search_sales;
         private System.Windows.Forms.DataGridView dataGridView1_add_sales;
         private System.Windows.Forms.Button update_save_sales;
         private System.Windows.Forms.Button delete_save_sales;
         private System.Windows.Forms.Button add_save_sales;
         private System.Windows.Forms.DateTimePicker Sale_invoice_Date;
         private System.Windows.Forms.ComboBox Client_Name;
-        private System.Windows.Forms.TextBox Products_Name;
         private System.Windows.Forms.TextBox Price;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button search_from_to;
@@ -974,7 +978,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker consume_from;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox consume_product;
         private System.Windows.Forms.ComboBox consume_client;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
@@ -988,7 +991,6 @@
         private System.Windows.Forms.ComboBox comboBox1_Client_Name;
         private System.Windows.Forms.DateTimePicker Date_installment;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox client_inst_search;
         private System.Windows.Forms.DataGridView dataGridView1_Clients_installment;
         private System.Windows.Forms.Button update_Clients_installment;
         private System.Windows.Forms.Button delete_Clients_installment;
@@ -997,5 +999,9 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.TextBox installment_Name;
         private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.ComboBox search_sales;
+        private System.Windows.Forms.ComboBox Products_Name;
+        private System.Windows.Forms.ComboBox client_inst_search;
+        private System.Windows.Forms.ComboBox consume_product;
     }
 }

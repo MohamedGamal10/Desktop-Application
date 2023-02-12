@@ -158,6 +158,8 @@ namespace Elfath_Plastic.Forms
                     Client_Name.Items.Add(reader[0].ToString());
                     consume_client.Items.Add(reader[0].ToString());
                     comboBox1_Client_Name.Items.Add(reader[0].ToString());
+                    search_sales.Items.Add(reader[0].ToString());
+                    client_inst_search.Items.Add(reader[0].ToString());
                 }
                 con.Close();
 
@@ -167,7 +169,27 @@ namespace Elfath_Plastic.Forms
                 MessageBox.Show(ex.Message);
             }
 
-            
+            try
+            {
+                con.Open();
+                String query = "SELECT Product_Name FROM Products_Store";
+                OleDbCommand cmd = new OleDbCommand(query, con);
+                OleDbDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Products_Name.Items.Add(reader[0].ToString());
+                    consume_product.Items.Add(reader[0].ToString());
+
+                }
+                con.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
         }
 
         private void Add_save_sales_Click(object sender, EventArgs e)

@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(purchase));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.search_purchase = new System.Windows.Forms.ComboBox();
             this.print = new System.Windows.Forms.Button();
             this.search_from_to = new System.Windows.Forms.Button();
             this.to = new System.Windows.Forms.DateTimePicker();
@@ -46,11 +47,9 @@
             this.label9 = new System.Windows.Forms.Label();
             this.Price = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.Material_Name = new System.Windows.Forms.TextBox();
             this.Supplier_Name = new System.Windows.Forms.ComboBox();
             this.Purchase_Invoice_Date = new System.Windows.Forms.DateTimePicker();
             this.btn_search_purchase = new System.Windows.Forms.Button();
-            this.search_purchase = new System.Windows.Forms.TextBox();
             this.dataGridView1_add_purchase = new System.Windows.Forms.DataGridView();
             this.update_save_purchase = new System.Windows.Forms.Button();
             this.delete_save_purchase = new System.Windows.Forms.Button();
@@ -79,13 +78,14 @@
             this.comboBox1_Supplier_Name = new System.Windows.Forms.ComboBox();
             this.Date_installment = new System.Windows.Forms.DateTimePicker();
             this.button3 = new System.Windows.Forms.Button();
-            this.Factory_inst_search = new System.Windows.Forms.TextBox();
             this.dataGridView1_Factory_installment = new System.Windows.Forms.DataGridView();
             this.update_Factory_installment = new System.Windows.Forms.Button();
             this.delete_Factory_installment = new System.Windows.Forms.Button();
             this.add_Factory_installment = new System.Windows.Forms.Button();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
+            this.Material_Name = new System.Windows.Forms.ComboBox();
+            this.Factory_inst_search = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1_add_purchase)).BeginInit();
@@ -111,6 +111,8 @@
             // tabPage1
             // 
             this.tabPage1.AutoScroll = true;
+            this.tabPage1.Controls.Add(this.Material_Name);
+            this.tabPage1.Controls.Add(this.search_purchase);
             this.tabPage1.Controls.Add(this.print);
             this.tabPage1.Controls.Add(this.search_from_to);
             this.tabPage1.Controls.Add(this.to);
@@ -122,11 +124,9 @@
             this.tabPage1.Controls.Add(this.label9);
             this.tabPage1.Controls.Add(this.Price);
             this.tabPage1.Controls.Add(this.label6);
-            this.tabPage1.Controls.Add(this.Material_Name);
             this.tabPage1.Controls.Add(this.Supplier_Name);
             this.tabPage1.Controls.Add(this.Purchase_Invoice_Date);
             this.tabPage1.Controls.Add(this.btn_search_purchase);
-            this.tabPage1.Controls.Add(this.search_purchase);
             this.tabPage1.Controls.Add(this.dataGridView1_add_purchase);
             this.tabPage1.Controls.Add(this.update_save_purchase);
             this.tabPage1.Controls.Add(this.delete_save_purchase);
@@ -155,10 +155,19 @@
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
+            // search_purchase
+            // 
+            this.search_purchase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.search_purchase.FormattingEnabled = true;
+            this.search_purchase.Location = new System.Drawing.Point(1333, 709);
+            this.search_purchase.Name = "search_purchase";
+            this.search_purchase.Size = new System.Drawing.Size(268, 37);
+            this.search_purchase.TabIndex = 73;
+            // 
             // print
             // 
             this.print.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.print.Location = new System.Drawing.Point(882, 707);
+            this.print.Location = new System.Drawing.Point(840, 707);
             this.print.Name = "print";
             this.print.Size = new System.Drawing.Size(103, 40);
             this.print.TabIndex = 72;
@@ -169,7 +178,7 @@
             // search_from_to
             // 
             this.search_from_to.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.search_from_to.Location = new System.Drawing.Point(1024, 806);
+            this.search_from_to.Location = new System.Drawing.Point(982, 806);
             this.search_from_to.Name = "search_from_to";
             this.search_from_to.Size = new System.Drawing.Size(103, 40);
             this.search_from_to.TabIndex = 71;
@@ -181,7 +190,7 @@
             // 
             this.to.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.to.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.to.Location = new System.Drawing.Point(1180, 806);
+            this.to.Location = new System.Drawing.Point(1138, 806);
             this.to.Name = "to";
             this.to.Size = new System.Drawing.Size(187, 36);
             this.to.TabIndex = 70;
@@ -191,7 +200,7 @@
             // 
             this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(1398, 812);
+            this.label13.Location = new System.Drawing.Point(1356, 812);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(39, 29);
             this.label13.TabIndex = 69;
@@ -202,7 +211,7 @@
             // 
             this.from.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.from.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.from.Location = new System.Drawing.Point(1456, 806);
+            this.from.Location = new System.Drawing.Point(1414, 806);
             this.from.Name = "from";
             this.from.Size = new System.Drawing.Size(187, 36);
             this.from.TabIndex = 68;
@@ -212,7 +221,7 @@
             // 
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(1675, 806);
+            this.label10.Location = new System.Drawing.Point(1633, 806);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(139, 29);
             this.label10.TabIndex = 67;
@@ -223,7 +232,7 @@
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(1664, 713);
+            this.label3.Location = new System.Drawing.Point(1622, 713);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(150, 29);
             this.label3.TabIndex = 66;
@@ -234,7 +243,7 @@
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(746, 92);
+            this.button1.Location = new System.Drawing.Point(704, 92);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(45, 29);
             this.button1.TabIndex = 65;
@@ -245,7 +254,7 @@
             // 
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(1482, 287);
+            this.label9.Location = new System.Drawing.Point(1440, 287);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(45, 29);
             this.label9.TabIndex = 64;
@@ -255,7 +264,7 @@
             // Price
             // 
             this.Price.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Price.Location = new System.Drawing.Point(746, 21);
+            this.Price.Location = new System.Drawing.Point(704, 21);
             this.Price.Name = "Price";
             this.Price.Size = new System.Drawing.Size(306, 36);
             this.Price.TabIndex = 63;
@@ -266,27 +275,18 @@
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(1180, 30);
+            this.label6.Location = new System.Drawing.Point(1138, 30);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(44, 24);
             this.label6.TabIndex = 62;
             this.label6.Text = "السعر";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
-            // Material_Name
-            // 
-            this.Material_Name.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Material_Name.Location = new System.Drawing.Point(1375, 218);
-            this.Material_Name.Name = "Material_Name";
-            this.Material_Name.Size = new System.Drawing.Size(306, 36);
-            this.Material_Name.TabIndex = 61;
-            this.Material_Name.TextChanged += new System.EventHandler(this.Material_Name_TextChanged);
-            // 
             // Supplier_Name
             // 
             this.Supplier_Name.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Supplier_Name.FormattingEnabled = true;
-            this.Supplier_Name.Location = new System.Drawing.Point(1375, 79);
+            this.Supplier_Name.Location = new System.Drawing.Point(1333, 79);
             this.Supplier_Name.Name = "Supplier_Name";
             this.Supplier_Name.Size = new System.Drawing.Size(306, 37);
             this.Supplier_Name.TabIndex = 59;
@@ -296,7 +296,7 @@
             // 
             this.Purchase_Invoice_Date.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Purchase_Invoice_Date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.Purchase_Invoice_Date.Location = new System.Drawing.Point(1375, 21);
+            this.Purchase_Invoice_Date.Location = new System.Drawing.Point(1333, 21);
             this.Purchase_Invoice_Date.Name = "Purchase_Invoice_Date";
             this.Purchase_Invoice_Date.Size = new System.Drawing.Size(306, 36);
             this.Purchase_Invoice_Date.TabIndex = 58;
@@ -305,7 +305,7 @@
             // btn_search_purchase
             // 
             this.btn_search_purchase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_search_purchase.Location = new System.Drawing.Point(1242, 706);
+            this.btn_search_purchase.Location = new System.Drawing.Point(1200, 706);
             this.btn_search_purchase.Name = "btn_search_purchase";
             this.btn_search_purchase.Size = new System.Drawing.Size(103, 40);
             this.btn_search_purchase.TabIndex = 57;
@@ -313,36 +313,27 @@
             this.btn_search_purchase.UseVisualStyleBackColor = true;
             this.btn_search_purchase.Click += new System.EventHandler(this.Btn_search_purchase_Click);
             // 
-            // search_purchase
-            // 
-            this.search_purchase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.search_purchase.Location = new System.Drawing.Point(1375, 706);
-            this.search_purchase.Name = "search_purchase";
-            this.search_purchase.Size = new System.Drawing.Size(268, 36);
-            this.search_purchase.TabIndex = 56;
-            this.search_purchase.TextChanged += new System.EventHandler(this.search_purchase_TextChanged);
-            // 
             // dataGridView1_add_purchase
             // 
             this.dataGridView1_add_purchase.AllowUserToAddRows = false;
             this.dataGridView1_add_purchase.AllowUserToDeleteRows = false;
             this.dataGridView1_add_purchase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1_add_purchase.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1_add_purchase.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView1_add_purchase.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1_add_purchase.Location = new System.Drawing.Point(746, 346);
+            this.dataGridView1_add_purchase.Location = new System.Drawing.Point(704, 346);
             this.dataGridView1_add_purchase.Name = "dataGridView1_add_purchase";
             this.dataGridView1_add_purchase.ReadOnly = true;
             this.dataGridView1_add_purchase.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dataGridView1_add_purchase.RowHeadersWidth = 51;
-            dataGridViewCellStyle20.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.dataGridView1_add_purchase.RowsDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.dataGridView1_add_purchase.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView1_add_purchase.RowTemplate.Height = 25;
             this.dataGridView1_add_purchase.Size = new System.Drawing.Size(1070, 354);
             this.dataGridView1_add_purchase.TabIndex = 55;
@@ -351,7 +342,7 @@
             // update_save_purchase
             // 
             this.update_save_purchase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.update_save_purchase.Location = new System.Drawing.Point(882, 753);
+            this.update_save_purchase.Location = new System.Drawing.Point(840, 753);
             this.update_save_purchase.Name = "update_save_purchase";
             this.update_save_purchase.Size = new System.Drawing.Size(103, 40);
             this.update_save_purchase.TabIndex = 54;
@@ -362,7 +353,7 @@
             // delete_save_purchase
             // 
             this.delete_save_purchase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.delete_save_purchase.Location = new System.Drawing.Point(773, 706);
+            this.delete_save_purchase.Location = new System.Drawing.Point(731, 706);
             this.delete_save_purchase.Name = "delete_save_purchase";
             this.delete_save_purchase.Size = new System.Drawing.Size(103, 40);
             this.delete_save_purchase.TabIndex = 53;
@@ -373,7 +364,7 @@
             // add_save_purchase
             // 
             this.add_save_purchase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.add_save_purchase.Location = new System.Drawing.Point(773, 753);
+            this.add_save_purchase.Location = new System.Drawing.Point(731, 753);
             this.add_save_purchase.Name = "add_save_purchase";
             this.add_save_purchase.Size = new System.Drawing.Size(103, 40);
             this.add_save_purchase.TabIndex = 52;
@@ -385,7 +376,7 @@
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(836, 86);
+            this.label4.Location = new System.Drawing.Point(794, 86);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(49, 29);
             this.label4.TabIndex = 45;
@@ -396,7 +387,7 @@
             // 
             this.Total_invoice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Total_invoice.AutoSize = true;
-            this.Total_invoice.Location = new System.Drawing.Point(923, 92);
+            this.Total_invoice.Location = new System.Drawing.Point(881, 92);
             this.Total_invoice.Name = "Total_invoice";
             this.Total_invoice.Size = new System.Drawing.Size(21, 29);
             this.Total_invoice.TabIndex = 44;
@@ -406,7 +397,7 @@
             // Notes
             // 
             this.Notes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Notes.Location = new System.Drawing.Point(746, 218);
+            this.Notes.Location = new System.Drawing.Point(704, 218);
             this.Notes.Multiline = true;
             this.Notes.Name = "Notes";
             this.Notes.Size = new System.Drawing.Size(306, 101);
@@ -418,7 +409,7 @@
             this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(1161, 227);
+            this.label14.Location = new System.Drawing.Point(1119, 227);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(67, 24);
             this.label14.TabIndex = 42;
@@ -428,7 +419,7 @@
             // Amount_Paid
             // 
             this.Amount_Paid.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Amount_Paid.Location = new System.Drawing.Point(746, 142);
+            this.Amount_Paid.Location = new System.Drawing.Point(704, 142);
             this.Amount_Paid.Name = "Amount_Paid";
             this.Amount_Paid.Size = new System.Drawing.Size(306, 36);
             this.Amount_Paid.TabIndex = 24;
@@ -437,7 +428,7 @@
             // Weight
             // 
             this.Weight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Weight.Location = new System.Drawing.Point(1564, 283);
+            this.Weight.Location = new System.Drawing.Point(1522, 283);
             this.Weight.Name = "Weight";
             this.Weight.Size = new System.Drawing.Size(117, 36);
             this.Weight.TabIndex = 20;
@@ -446,7 +437,7 @@
             // Discount
             // 
             this.Discount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Discount.Location = new System.Drawing.Point(1375, 142);
+            this.Discount.Location = new System.Drawing.Point(1333, 142);
             this.Discount.Name = "Discount";
             this.Discount.Size = new System.Drawing.Size(306, 36);
             this.Discount.TabIndex = 17;
@@ -457,7 +448,7 @@
             this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(1133, 142);
+            this.label12.Location = new System.Drawing.Point(1091, 142);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(92, 24);
             this.label12.TabIndex = 11;
@@ -469,7 +460,7 @@
             this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(1098, 92);
+            this.label11.Location = new System.Drawing.Point(1056, 92);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(127, 24);
             this.label11.TabIndex = 10;
@@ -481,7 +472,7 @@
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(1775, 292);
+            this.label8.Location = new System.Drawing.Point(1733, 292);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(45, 24);
             this.label8.TabIndex = 7;
@@ -493,7 +484,7 @@
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(1746, 215);
+            this.label7.Location = new System.Drawing.Point(1704, 215);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(74, 24);
             this.label7.TabIndex = 6;
@@ -505,7 +496,7 @@
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(1766, 142);
+            this.label5.Location = new System.Drawing.Point(1724, 142);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(50, 24);
             this.label5.TabIndex = 4;
@@ -517,7 +508,7 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(1743, 83);
+            this.label2.Location = new System.Drawing.Point(1701, 83);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(71, 24);
             this.label2.TabIndex = 1;
@@ -529,7 +520,7 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(1725, 33);
+            this.label1.Location = new System.Drawing.Point(1683, 33);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(92, 24);
             this.label1.TabIndex = 0;
@@ -538,6 +529,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.Factory_inst_search);
             this.tabPage2.Controls.Add(this.installment_Name);
             this.tabPage2.Controls.Add(this.label24);
             this.tabPage2.Controls.Add(this.print_Factory_installment);
@@ -547,7 +539,6 @@
             this.tabPage2.Controls.Add(this.comboBox1_Supplier_Name);
             this.tabPage2.Controls.Add(this.Date_installment);
             this.tabPage2.Controls.Add(this.button3);
-            this.tabPage2.Controls.Add(this.Factory_inst_search);
             this.tabPage2.Controls.Add(this.dataGridView1_Factory_installment);
             this.tabPage2.Controls.Add(this.update_Factory_installment);
             this.tabPage2.Controls.Add(this.delete_Factory_installment);
@@ -650,35 +641,27 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // Factory_inst_search
-            // 
-            this.Factory_inst_search.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Factory_inst_search.Location = new System.Drawing.Point(1390, 644);
-            this.Factory_inst_search.Name = "Factory_inst_search";
-            this.Factory_inst_search.Size = new System.Drawing.Size(268, 36);
-            this.Factory_inst_search.TabIndex = 105;
-            // 
             // dataGridView1_Factory_installment
             // 
             this.dataGridView1_Factory_installment.AllowUserToAddRows = false;
             this.dataGridView1_Factory_installment.AllowUserToDeleteRows = false;
             this.dataGridView1_Factory_installment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1_Factory_installment.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1_Factory_installment.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1_Factory_installment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1_Factory_installment.Location = new System.Drawing.Point(1116, 215);
             this.dataGridView1_Factory_installment.Name = "dataGridView1_Factory_installment";
             this.dataGridView1_Factory_installment.ReadOnly = true;
             this.dataGridView1_Factory_installment.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dataGridView1_Factory_installment.RowHeadersWidth = 51;
-            dataGridViewCellStyle18.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.dataGridView1_Factory_installment.RowsDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.dataGridView1_Factory_installment.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1_Factory_installment.RowTemplate.Height = 25;
             this.dataGridView1_Factory_installment.Size = new System.Drawing.Size(755, 354);
             this.dataGridView1_Factory_installment.TabIndex = 104;
@@ -739,6 +722,24 @@
             this.label23.TabIndex = 99;
             this.label23.Text = "تاريخ القسط";
             // 
+            // Material_Name
+            // 
+            this.Material_Name.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Material_Name.FormattingEnabled = true;
+            this.Material_Name.Location = new System.Drawing.Point(1333, 214);
+            this.Material_Name.Name = "Material_Name";
+            this.Material_Name.Size = new System.Drawing.Size(306, 37);
+            this.Material_Name.TabIndex = 74;
+            // 
+            // Factory_inst_search
+            // 
+            this.Factory_inst_search.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Factory_inst_search.FormattingEnabled = true;
+            this.Factory_inst_search.Location = new System.Drawing.Point(1402, 647);
+            this.Factory_inst_search.Name = "Factory_inst_search";
+            this.Factory_inst_search.Size = new System.Drawing.Size(243, 37);
+            this.Factory_inst_search.TabIndex = 115;
+            // 
             // purchase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -777,14 +778,12 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label Total_invoice;
         private System.Windows.Forms.Button btn_search_purchase;
-        private System.Windows.Forms.TextBox search_purchase;
         private System.Windows.Forms.DataGridView dataGridView1_add_purchase;
         private System.Windows.Forms.Button update_save_purchase;
         private System.Windows.Forms.Button delete_save_purchase;
         private System.Windows.Forms.Button add_save_purchase;
         private System.Windows.Forms.DateTimePicker Purchase_Invoice_Date;
         private System.Windows.Forms.ComboBox Supplier_Name;
-        private System.Windows.Forms.TextBox Material_Name;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox Price;
@@ -806,12 +805,14 @@
         private System.Windows.Forms.ComboBox comboBox1_Supplier_Name;
         private System.Windows.Forms.DateTimePicker Date_installment;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox Factory_inst_search;
         private System.Windows.Forms.DataGridView dataGridView1_Factory_installment;
         private System.Windows.Forms.Button update_Factory_installment;
         private System.Windows.Forms.Button delete_Factory_installment;
         private System.Windows.Forms.Button add_Factory_installment;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.ComboBox search_purchase;
+        private System.Windows.Forms.ComboBox Material_Name;
+        private System.Windows.Forms.ComboBox Factory_inst_search;
     }
 }
